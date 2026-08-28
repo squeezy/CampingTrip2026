@@ -1,177 +1,82 @@
-// Travel & EV Data for Owl Yard Campsite & Uthai Thani Road Trip - Flexible & Chill Edition
-const TRIP_DATA = {
-  tripInfo: {
-    title: "ทริปแคมป์ปิ้งบ้านไร่ & อุทัยธานี (Chill & Flexible EV Guide)",
-    subtitle: "ออก 9 โมงเช้า • ชาร์จชิลๆ ระหว่างกินข้าว • เติมไฟเต็มก่อนนอนในรถ • ขากลับไหลออกสายเอเชีย",
-    totalDistanceApprox: 545, // km loop
-    departureTime: "09:00 น. (ออกจากบ้าน นนทบุรี)",
-    origin: {
-      name: "บ้าน (นนทบุรี / วงเวียนพระราม 5)",
-      lat: 13.817392,
-      lng: 100.414615,
-      mapsUrl: "https://maps.app.goo.gl/CruR6eFEcTNf8FS29"
-    },
-    destination: {
-      name: "Owl Yard Campsite at Ban Rai",
-      lat: 15.0777806,
-      lng: 99.4981633,
-      mapsUrl: "https://maps.app.goo.gl/KMuWuBpnYHSfwWik6",
-      desc: "ลานกางเต็นท์ท่ามกลางขุนเขาและธรรมชาติบ้านไร่ เหมาะสำหรับกางเต็นท์และ Car Camping นอนเปิดแอร์ในรถ EV"
-    },
-    highlightCharger: {
-      name: "NEXMOEV Charging Station (พยุหะคีรี)",
-      lat: 15.482658,
-      lng: 100.1352141,
-      mapsUrl: "https://maps.app.goo.gl/kmZSP3vFMaV8g2ZN7"
-    }
-  },
+# Milestone 2 Technical Analysis & Specification: Stop Cards Data & 1-Tap Navigation
 
-  // Directional Route Summary for Visual Flow
-  routeDirectionOverview: {
-    title: "ภาพรวมทิศทาง & วงรอบการเดินทาง (Loop Route Direction)",
-    outbound: {
-      name: "ขาไป (ทิศตะวันตกเฉียงเหนือ ➔ หุบเขาบ้านไร่)",
-      color: "#10b981",
-      path: "นนทบุรี (ทล.340) ➔ สุพรรณบุรี (สามชุก) ➔ ด่านช้าง (ทล.333) ➔ บ้านไร่ (Owl Yard)",
-      totalDist: "~220 กม.",
-      keyChargingStrategy: "★ แวะชาร์จไฟให้ได้มากที่สุดที่ 'PTT ด่านช้าง' (85-95%) เพื่อนำไปเปิดแอร์นอนทั้งคืนที่ Owl Yard"
-    },
-    inbound: {
-      name: "ขากลับ (ทิศตะวันออกเฉียงเหนือ ➔ ออกถนนสายเอเชีย ➔ ล่องใต้)",
-      color: "#f59e0b",
-      path: "บ้านไร่ ➔ หุบป่าตาด ➔ ทล.333 เลี่ยงเมืองอุทัยฯ ➔ วัดท่าซุง ➔ ⭐ NEXMOEV ➔ ชัยนาท ➔ ถนนสายเอเชีย (AH2 / ทล.32) ➔ กรุงเทพฯ/นนทบุรี",
-      totalDist: "~325 กม.",
-      keyChargingStrategy: "★ ลองชาร์จที่ 'NEXMOEV พยุหะคีรี' (มี 12 หัว + ห้องแอร์นวดฟรี) จากนั้นถนนสายเอเชียมีที่ชาร์จตลอดสายทุก 15-20 กม."
-    }
-  },
+**Author**: M2 Explorer 2 (Stop Cards Data & 1-Tap Navigation)  
+**Date**: 2026-08-28  
+**Scope**: Unified 20-Place Data Enrichment, Driver Stop Card HTML/CSS Architecture, 1-Tap Google Maps Navigation Intent
 
-  // "Charge & Chill" Hubs (แวะชาร์จ + กินข้าว/ดื่มกาแฟ/พักผ่อนในจุดเดียวกัน)
-  chargeAndChillHubs: [
-    {
-      id: "hub-danchang",
-      name: "1. PTT Station ด่านช้าง (EV Station PluZ)",
-      badge: "★ จุดชาร์จสำคัญที่สุดขาไป (เติมให้เต็มก่อนเข้าแคมป์)",
-      badgeColor: "badge-green",
-      distanceFromHome: "175 กม. (ขับประมาณ 2 ชม. - 2 ชม. 20 นาที จากบ้าน)",
-      lat: 14.841178,
-      lng: 99.689596,
-      mapsUrl: "https://maps.app.goo.gl/dk8prDCVKgpJKhkz5",
-      image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=600&q=80",
-      chargerSpecs: "⚡ DC Fast Charge 120 kW (2 หัวชาร์จ CCS2) + AC Type 2 (แอป EV Station PluZ)",
-      whatToEatAndChill: [
-        "☕ Cafe Amazon (สั่งกาแฟ/ชา นั่งจิบตากแอร์ระหว่างรอชาร์จ)",
-        "🏪 7-Eleven ขนาดใหญ่ (ซื้อเสบียง ขนม น้ำแข็ง ข้าวกล่อง เครื่องดื่ม)",
-        "🍜 ร้านอาหารตามสั่ง/ก๋วยเตี๋ยวในปั๊มและฝั่งตรงข้าม",
-        "🥩 ตลาดสดด่านช้าง (ห่าง 1 กม. แวะซื้อเนื้อหมูกระทะ ผักสด อาหารเย็นไปทำที่แคมป์ได้)"
-      ],
-      chillAdvice: "ถ้าออกจากบ้าน 9 โมงเช้า จะถึงที่นี่ประมาณ 11:30 - 12:00 น. พอดีเวลาอาหารเที่ยง! แวะกินข้าว+ซื้อของเข้าแคมป์ 30-40 นาที รถจะได้ไฟ 90-95% พร้อมนอนในรถสบายทั้งคืน"
-    },
-    {
-      id: "hub-suphan-samchuk",
-      name: "2. โซนสุพรรณบุรี - ตลาดสามชุก 100 ปี & ปั๊มบางจาก",
-      badge: "จุดแวะชิลกินมื้อสาย/เที่ยงขาไป (เลือกแวะได้)",
-      badgeColor: "badge-blue",
-      distanceFromHome: "120 กม. (ขับประมาณ 1 ชม. 30 นาที)",
-      lat: 14.7554597,
-      lng: 100.0947608,
-      mapsUrl: "https://maps.app.goo.gl/Tx9V12d6zaevFG8w7",
-      image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80",
-      chargerSpecs: "⚡ ปตท.สามชุก / บางจาก พลับพลาไชย (อู่ทอง) / บางจาก บางปลาม้า (DC Fast 50-120 kW)",
-      whatToEatAndChill: [
-        "🏮 ตลาดสามชุก 100 ปี: บะหมี่ลูกชิ้นยักษ์, เป็ดพะโล้ร้อยปี, ขนมไข่โบราณ, กาแฟโบราณห้องแถวไม้",
-        "☕ กาแฟ Inthanin / Amazon ตามปั๊มบางจากและ ปตท.",
-        "🛍️ ช้อปปิ้งของกินโบราณและของฝากเมืองสุพรรณ"
-      ],
-      chillAdvice: "หากอยากแวะเดินเล่นตลาดโบราณชิลๆ ให้แวะสามชุกกินมื้อสายก่อน แล้วค่อยไป Top-up แบตเต็มที่ด่านช้าง หรือถ้าอยากแวะปั๊มบางจากพลับพลาไชยก็เสียบชาร์จแล้วนั่งจิบ Inthanin ได้"
-    },
-    {
-      id: "hub-banrai-local",
-      name: "3. โซน อ.บ้านไร่ (ใกล้ลาน Owl Yard 3-5 กม.)",
-      badge: "ร้านอาหาร & คาเฟ่ & จุดชาร์จสำรองหน้าลานแคมป์",
-      badgeColor: "badge-amber",
-      distanceFromHome: "220 กม.",
-      lat: 15.0777806,
-      lng: 99.4981633,
-      mapsUrl: "https://maps.app.goo.gl/KMuWuBpnYHSfwWik6",
-      image: "https://images.unsplash.com/photo-1510312305653-8ed496efae75?auto=format&fit=crop&w=600&q=80",
-      chargerSpecs: "⚡ PEA VOLTA การไฟฟ้าบ้านไร่ (ต.บ้านบึง) DC 25-50 kW & 22FRETS (ห่างลาน 5 กม.)",
-      whatToEatAndChill: [
-        "🍽️ สวนอาหาร คุ้มริมเขา (ต้มยำปลาคัง, ปลาแรดทอดน้ำปลา, อาหารป่า บรรยากาศริมเขาช่วงเย็น)",
-        "🍽️ ร้านอาหารบ้านสวน (อาหารไทยพื้นบ้าน ร่มรื่นในสวน)",
-        "🍲 ร้านผัดไทยมรดกโลก (ป้าสมนึก) (ผัดไทยเตาถ่านชื่อดัง มื้อกลางวัน)",
-        "☕ Le Leela Cafe (Dirty Coffee, Matcha, เค้กโฮมเมด วิวภูเขาบ้านไร่)",
-        "🍜 ครัวชายคาตามสั่ง & ราดหน้าเฮียอ้วน"
-      ],
-      chillAdvice: "เช็คอิน Owl Yard ตอนบ่ายแก่ๆ พอแดดร่มลมตก 17:30 น. ขับรถ 5 นาทีไปกินมื้อเย็นที่คุ้มริมเขา/บ้านสวน แล้วกลับมานอนเปิดแอร์ในรถชิลๆ ตื่นเช้าค่อยไปจิบกาแฟที่ เลอ ลีลา คาเฟ่"
-    },
-    {
-      id: "hub-uthai-bypass",
-      name: "4. PTT Station เลี่ยงเมืองอุทัยธานี (ทล.333)",
-      badge: "จุดพักขากลับช่วงแรก (หลังเที่ยวหุบป่าตาด)",
-      badgeColor: "badge-blue",
-      distanceFromHome: "290 กม. (จากบ้านไร่มา 65 กม.)",
-      lat: 15.3681817,
-      lng: 100.0155478,
-      mapsUrl: "https://maps.app.goo.gl/NkZZXbkN86qaTw718",
-      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
-      chargerSpecs: "⚡ EV Station PluZ (DC Fast Charge 120 kW) (แอป EV Station PluZ)",
-      whatToEatAndChill: [
-        "☕ Cafe Amazon สาขาใหญ่",
-        "🏪 7-Eleven & ร้านของฝากเมืองอุทัยธานี",
-        "🍽️ ร้านข้าวมันไก่ / ข้าวแกง และขับเข้าเมือง 5 นาทีไปซื้อ 'ขนมปังสังขยาไพพรรณ'"
-      ],
-      chillAdvice: "หลังเดินเที่ยวหุบป่าตาดเสร็จ ขับออกมา 35 กม. จะถึงปั๊มนี้ แวะเข้าห้องน้ำ ดื่มน้ำเย็นๆ หรือเสียบชาร์จสัก 15-20 นาที ก่อนเข้าไปไหว้พระวัดท่าซุง"
-    },
-    {
-      id: "hub-nexmoev",
-      name: "5. ⭐ NEXMOEV Mega Station (พยุหะคีรี / นครสวรรค์)",
-      badge: "👑 ไฮไลท์พิเศษขากลับที่ต้องลอง! (12 หัวชาร์จ + นวดแอร์ VIP)",
-      badgeColor: "badge-purple",
-      distanceFromHome: "325 กม. (จากวัดท่าซุงมา 25 กม.)",
-      lat: 15.482658,
-      lng: 100.1352141,
-      mapsUrl: "https://maps.app.goo.gl/kmZSP3vFMaV8g2ZN7",
-      image: "https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=600&q=80",
-      chargerSpecs: "⚡ DC Fast Charge 120 kW จำนวน 12 ตู้ชาร์จพร้อมกัน (แอป NEXMOEV / สแกน QR)",
-      whatToEatAndChill: [
-        "🛋️ ห้องรับรอง VIP ติดแอร์เย็นฉ่ำ มีโซฟาและที่นั่งทำงาน",
-        "💆 เก้าอี้นวดไฟฟ้าเพื่อสุขภาพ (นั่งนวดฟรีระหว่างรอชาร์จไฟ)",
-        "🚻 ห้องน้ำติดแอร์สะอาดระดับโรงแรม 5 ดาว",
-        "☕ มุมเครื่องดื่ม กาแฟสด ขนม และเบเกอรี่บริการ 24 ชม."
-      ],
-      chillAdvice: "★ จุดไฮไลท์ที่แนะนำให้มาพักผ่อน! เสียบชาร์จทั้ง 2 คันพร้อมกันได้เลยไม่มีคิว แล้วเข้าไปนั่งนวดไฟฟ้าในห้องแอร์ กินกาแฟชิลๆ 30 นาที ชาร์จแบตให้เต็ม 90-100% แล้วยิงยาวกลับบ้านได้อย่างสบายตัวที่สุด"
-    },
-    {
-      id: "hub-asian-highway",
-      name: "6. เครือข่ายปั๊มถนนสายเอเชีย (AH2 / ทล.32: มโนรมย์ ➔ ชัยนาท ➔ สิงห์บุรี ➔ อยุธยา)",
-      badge: "ขากลับเข้ากรุงเทพฯ มีที่ชาร์จ & ของกินตลอดทุก 15-20 กม.",
-      badgeColor: "badge-green",
-      distanceFromHome: "ตลอดระยะทาง 185 กม. ขากลับ",
-      lat: 15.3493829,
-      lng: 100.1648069,
-      mapsUrl: "https://maps.app.goo.gl/RndqJNNxnSVdU6aR6",
-      image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
-      chargerSpecs: "⚡ ปตท.มโนรมย์, EleX by EGAT มโนรมย์, ปตท.สิงห์บุรี, บางจากสิงห์บุรี, ปตท.อยุธยา (DC 120-360 kW มากกว่า 100+ ตู้)",
-      whatToEatAndChill: [
-        "🦜 สวนนกชัยนาท (แวะเดินชมธรรมชาติ)",
-        "🐟 ร้านอาหารปลาแม่น้ำสิงห์บุรี / ตลาดปลาแม่น้ำริมสายเอเชีย",
-        "🌯 ร้านโรตีสายไหมและก๋วยเตี๋ยวเรืออยุธยา",
-        "🍔 ศูนย์อาหารขนาดใหญ่และฟาสต์ฟู้ดทุกแบรนด์"
-      ],
-      chillAdvice: "เส้นนี้ขับชิลที่สุดในประเทศสำหรับรถ EV เพราะมีตู้ DC Fast Charger ทุก 15-20 กม. หิวตรงไหน แบตเหลือเท่าไหร่ อยากแวะปั๊มไหนก็แวะได้ทันทีตามใจชอบ"
-    }
-  ],
+---
 
-  categories: [
-    { id: "all", name: "ทั้งหมด", icon: "sparkles", color: "#6366f1" },
-    { id: "charger", name: "จุดชาร์จ EV", icon: "zap", color: "#10b981" },
-    { id: "camp", name: "ลานแคมป์ปิ้ง", icon: "tent", color: "#f59e0b" },
-    { id: "food", name: "ร้านอาหาร", icon: "utensils", color: "#ef4444" },
-    { id: "cafe", name: "คาเฟ่", icon: "coffee", color: "#8b5cf6" },
-    { id: "poi", name: "จุดแวะเที่ยว / Unseen", icon: "map-pin", color: "#3b82f6" }
-  ],
+## 1. Executive Summary
 
-  // Master Places Directory
+Milestone 2 requires upgrading the trip and route view from static information boxes into a responsive, driver-ergonomic journey feed synchronized with the interactive Leaflet map. This document provides:
+1. **Complete Data Enrichment Specification for all 20 Places**: Adding `phase` ('outbound' | 'campsite' | 'inbound'), `powerKw`, `plugType`, `networkApp`, `foodHighlights`, and standard Google Maps direct intent `navUrl` (`https://www.google.com/maps/dir/?api=1&destination=lat,lng`).
+2. **Redesigned Driver Stop Card HTML/CSS Template**: Featuring prominent typography, high-contrast badges, charging speed pills (⚡ 120/160 kW), food highlight chips, and a high-visibility >=48px 1-tap navigation CTA button.
+3. **Integration & Rendering Contract**: Clear interface definition for `app.js` renderer and `style.css` design system.
+
+---
+
+## 2. Master Places Data Model (`TRIP_DATA.places`)
+
+### 2.1 TypeScript Interface Contract
+
+```typescript
+export interface PlaceItem {
+  id: string;                          // Unique identifier (e.g. 'charger_nexmoev')
+  name: string;                        // Prominent display name
+  category: 'camp' | 'charger' | 'food' | 'cafe' | 'poi';
+  subCategory: string;                 // Descriptive sub-title
+  phase: 'outbound' | 'campsite' | 'inbound'; // 3-phase journey leg
+  lat: number;                         // Latitude coordinate
+  lng: number;                         // Longitude coordinate
+  distanceFromOrigin: number;          // Distance in km from starting point (Bangkok/Nonthaburi)
+  powerKw?: number;                    // Peak DC fast charging capacity (kW)
+  plugType?: string;                   // Connector specification (e.g. 'CCS2 12 หัว', 'CCS2 2 หัว')
+  networkApp?: string;                 // Primary mobile app (e.g. 'NEXMOEV', 'EV Station PluZ', 'EleXA')
+  foodHighlights?: string[];           // Signature dishes / amenities
+  navUrl: string;                      // Direct navigation intent URL
+  mapsUrl?: string;                    // Short web map link (fallback/share)
+  image?: string;                      // Card banner photo URL
+  description: string;                 // Detailed description text
+  tips?: string;                       // Crucial driver guidance
+  openingHours?: string;               // Operating hours
+  phone?: string;                      // Contact phone number
+  highlight?: boolean;                 // Featured landmark flag
+  isSuperHighlight?: boolean;          // Super-station highlight flag (NEXMOEV)
+}
+```
+
+---
+
+### 2.2 Complete 20-Place Dataset Specification
+
+| # | ID | Name | Category | Phase | Dist (km) | Power (kW) | Network / Plug | Food Highlights / Amenities | Direct navUrl |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | `home` | บ้าน (จุดเริ่มต้น / ปลายทาง) | `poi` | `outbound` | 0 | - | - | `["เตรียมเสบียงจากบ้าน", "เครื่องดื่มแก้วแรก"]` | `https://www.google.com/maps/dir/?api=1&destination=13.817392,100.414615` |
+| 2 | `poi_samchuk` | ตลาดสามชุก 100 ปี (Sam Chuk Old Town) | `poi` | `outbound` | 120 | - | - | `["ลูกชิ้นยักษ์สามชุก", "เป็ดพะโล้ร้อยปี", "ทองม้วนสด", "กาแฟโบราณ"]` | `https://www.google.com/maps/dir/?api=1&destination=14.7554597,100.0947608` |
+| 3 | `charger_danchang` | PTT Station ด่านช้าง (EV Station PluZ) | `charger` | `outbound` | 175 | 120 | EV Station PluZ<br>CCS2 2 หัว + Type 2 | `["Cafe Amazon", "7-Eleven ใหญ่", "ร้านอาหารตามสั่ง", "ตลาดสดด่านช้าง (1 กม.)"]` | `https://www.google.com/maps/dir/?api=1&destination=14.841178,99.689596` |
+| 4 | `owlyard` | Owl Yard Campsite at Ban Rai | `camp` | `campsite` | 220 | - | ปลั๊กไฟแคมป์ / V2L | `["ทำอาหารแคมป์ปิ้ง / หมูกระทะ", "เสียบปลั๊ก V2L กาน้ำร้อน", "บาร์บีคิวรอบกองไฟ"]` | `https://www.google.com/maps/dir/?api=1&destination=15.0777806,99.4981633` |
+| 5 | `charger_banrai_pea` | PEA VOLTA การไฟฟ้าบ้านไร่ (บ้านบึง) | `charger` | `campsite` | 223 | 50 | PEA VOLTA<br>CCS2 + CHAdeMO | `["7-Eleven บ้านไร่", "ร้านอาหารใกล้ตัวอำเภอ", "ตลาดสดเทศบาลบ้านไร่"]` | `https://www.google.com/maps/dir/?api=1&destination=15.0682,99.5321` |
+| 6 | `rest_koomrimkhao` | สวนอาหาร คุ้มริมเขา | `food` | `campsite` | 221 | - | - | `["ต้มยำปลาคัง", "ปลาแรดทอดน้ำปลา", "กวางผัดเผ็ด", "ยำผักกูดกรอบ"]` | `https://www.google.com/maps/dir/?api=1&destination=15.0912924,99.508729` |
+| 7 | `rest_baansuan` | ร้านอาหารบ้านสวน บ้านไร่ | `food` | `campsite` | 222 | - | - | `["ปลาแรดสามรส", "ทอดมันปลากรายแท้", "แกงป่าปลาคัง"]` | `https://www.google.com/maps/dir/?api=1&destination=15.0843113,99.5260428` |
+| 8 | `rest_chaika` | ครัวชายคาตามสั่งก๋วยเตี๋ยว | `food` | `campsite` | 220 | - | - | `["กะเพราเนื้อตุ๋น/หมูกรอบ", "ก๋วยเตี๋ยวต้มยำโบราณ", "อาหารจานด่วนใกล้ลาน"]` | `https://www.google.com/maps/dir/?api=1&destination=15.0714252,99.4936949` |
+| 9 | `rest_heiauan` | ราดหน้าเฮียอ้วน @ Banrai | `food` | `campsite` | 222 | - | - | `["ราดหน้าหมูหมักยอดผัก", "ผัดซีอิ๊วทะเล", "หมี่กรอบราดหน้า"]` | `https://www.google.com/maps/dir/?api=1&destination=15.0765284,99.5254919` |
+| 10 | `rest_padthai` | ร้านผัดไทยมรดกโลก (ป้าสมนึก) | `food` | `campsite` | 222 | - | - | `["ผัดไทยกุ้งสดห่อไข่", "ผัดไทยกากหมูเตาถ่าน", "ซอสมะขามโบราณ"]` | `https://www.google.com/maps/dir/?api=1&destination=15.0850897,99.5249024` |
+| 11 | `cafe_leleela` | Le Leela Cafe (เลอ ลีลา คาเฟ่) | `cafe` | `campsite` | 223 | - | - | `["Signature Dirty Coffee", "Matcha Latte มะพร้าวสด", "ชีสเค้กหน้าไหม้"]` | `https://www.google.com/maps/dir/?api=1&destination=15.0586269,99.5168511` |
+| 12 | `poi_giant_tree` | ต้นไม้ยักษ์บ้านสะนำ (Giant Tree Ban Rai) | `poi` | `campsite` | 222 | - | - | `["ตลาดชุมชนบ้านสะนำ", "น้ำสมุนไพรพื้นบ้าน", "ผลไม้สวนบ้านไร่"]` | `https://www.google.com/maps/dir/?api=1&destination=15.076,99.528` |
+| 13 | `poi_wat_tham_khao_wong` | วัดถ้ำเขาวง บ้านไร่ | `poi` | `campsite` | 225 | - | - | `["เรือนไทย 4 ชั้นไม้สัก", "จุดชมวิวผาหินปูน", "ร้านน้ำดื่มสมุนไพร"]` | `https://www.google.com/maps/dir/?api=1&destination=15.032,99.456` |
+| 14 | `poi_huppatat` | หุบป่าตาด (Hup Pa Tat - Jurassic Valley) | `poi` | `inbound` | 265 | - | - | `["กาแฟชุมชนหุบป่าตาด", "ไอศกรีมกะทิสด", "ของที่ระลึกกิ้งกือมังกร"]` | `https://www.google.com/maps/dir/?api=1&destination=15.378,99.63` |
+| 15 | `charger_ptt_uthai_bypass` | PTT Station เลี่ยงเมืองอุทัยธานี (ทล.333) | `charger` | `inbound` | 290 | 120 | EV Station PluZ<br>CCS2 2 หัว + Type 2 | `["Cafe Amazon", "7-Eleven", "ข้าวมันไก่/ข้าวแกง", "ขนมปังสังขยาไพพรรณ (ใกล้เคียง)"]` | `https://www.google.com/maps/dir/?api=1&destination=15.3681817,100.0155478` |
+| 16 | `poi_watthasung` | วัดจันทาราม (วัดท่าซุง) | `poi` | `inbound` | 310 | - | - | `["วิหารแก้ว 100 เมตร", "ปราสาททองคำ", "ร้านอาหารแพริมน้ำสะแกกรัง"]` | `https://www.google.com/maps/dir/?api=1&destination=15.3323969,100.0724402` |
+| 17 | `charger_nexmoev` | ⭐ NEXMOEV Charging Station (พยุหะคีรี) | `charger` | `inbound` | 325 | 120 | NEXMOEV<br>CCS2 12 หัว | `["ห้องรับรอง VIP แอร์เย็น", "เก้าอี้นวดไฟฟ้าฟรี", "กาแฟสด & ขนม 24 ชม.", "ห้องน้ำติดแอร์ 5 ดาว"]` | `https://www.google.com/maps/dir/?api=1&destination=15.482658,100.1352141` |
+| 18 | `charger_elex_egat_manorom` | EleX by EGAT Charging Station (มโนรมย์) | `charger` | `inbound` | 320 | 120 | EleXA<br>CCS2 2 หัว | `["กาแฟพันธุ์ไทย (ปั๊ม PT)", "Max Mart สะดวกซื้อ", "จุดพักรถมโนรมย์"]` | `https://www.google.com/maps/dir/?api=1&destination=15.3973033,100.1477948` |
+| 19 | `charger_ptt_manorom_ah2` | PTT Station มโนรมย์ (สายเอเชีย ทล.32) | `charger` | `inbound` | 330 | 120 | EV Station PluZ<br>CCS2 2 หัว + Type 2 | `["Cafe Amazon", "7-Eleven ขนาดใหญ่", "ศูนย์อาหารสายเอเชีย", "ของฝากเมืองชัยนาท"]` | `https://www.google.com/maps/dir/?api=1&destination=15.3493829,100.1648069` |
+| 20 | `poi_chainat_bird` | สวนนกชัยนาท (Chainat Bird Park) | `poi` | `inbound` | 345 | - | - | `["ศูนย์อาหารสวนนก", "ปลาแม่น้ำเจ้าพระยา", "ส้มโอขาวแตงกวาชัยนาท"]` | `https://www.google.com/maps/dir/?api=1&destination=15.2066066,100.1515585` |
+
+---
+
+### 2.3 Ready-to-Embed JavaScript Object Dictionary for `data.js`
+
+```javascript
   places: [
     {
       id: "home",
@@ -188,7 +93,6 @@ const TRIP_DATA = {
       description: "จุดเริ่มต้นทริป (โซนนนทบุรี / พระราม 5 / นครอินทร์) นัดพบและออกเดินทางพร้อมกัน 2 คัน เวลา 09:00 น.",
       tips: "ชาร์จแบตที่บ้านให้เต็ม 100% ก่อนออกเดินทาง 9 โมงเช้า",
       foodHighlights: ["เตรียมเสบียงจากบ้าน", "เครื่องดื่มแก้วแรก"],
-      recommendedMenu: ["เตรียมเสบียงจากบ้าน", "เครื่องดื่มแก้วแรก"],
       highlight: true
     },
     {
@@ -206,7 +110,6 @@ const TRIP_DATA = {
       description: "ตลาดห้องแถวไม้โบราณริมแม่น้ำท่าจีน แหล่งรวมของกินโบราณ บะหมี่ลูกชิ้นยักษ์ และขนมไข่โบราณ",
       openingHours: "08:30 - 16:30 น. ทุกวัน",
       foodHighlights: ["ลูกชิ้นยักษ์สามชุก", "เป็ดพะโล้ร้อยปี", "ทองม้วนสด", "กาแฟโบราณ"],
-      recommendedMenu: ["ลูกชิ้นยักษ์สามชุก", "เป็ดพะโล้ร้อยปี", "ทองม้วนสด"],
       tips: "จุดแวะพักครึ่งทางวันที่ 1 เหมาะเดินเล่นซื้อเสบียงไปแคมป์",
       highlight: true
     },
@@ -233,7 +136,6 @@ const TRIP_DATA = {
         appNeeded: "EV Station PluZ"
       },
       foodHighlights: ["Cafe Amazon", "7-Eleven ใหญ่", "ร้านอาหารตามสั่ง", "ตลาดสดด่านช้าง (1 กม.)"],
-      recommendedMenu: ["Cafe Amazon", "7-Eleven ใหญ่", "ร้านอาหารตามสั่ง"],
       tips: "แนะนำให้ทั้ง 2 คัน Top-up ชาร์จให้ได้ 85-95% ที่นี่",
       highlight: true
     },
@@ -254,7 +156,6 @@ const TRIP_DATA = {
       openingHours: "เช็คอิน 14:00 น. / เช็คเอาท์ 12:00 น.",
       facilities: ["มีห้องน้ำสะอาด", "มีจุดต่อปลั๊กไฟ (สอบถามลาน)", "เหมาะกับ Car Camping", "สัญญาณมือถือดี"],
       foodHighlights: ["ทำอาหารแคมป์ปิ้ง / หมูกระทะ", "เสียบปลั๊ก V2L กาน้ำร้อน", "บาร์บีคิวรอบกองไฟ"],
-      recommendedMenu: ["ทำอาหารแคมป์ปิ้ง / หมูกระทะ", "เสียบปลั๊ก V2L กาน้ำร้อน", "บาร์บีคิวรอบกองไฟ"],
       tips: "เตรียมปลั๊กพ่วงยาว, ม่านบังแดดรอบคัน และตั้ง Camp Mode เปิดแอร์ 24-25°C",
       highlight: true
     },
@@ -281,7 +182,6 @@ const TRIP_DATA = {
         appNeeded: "PEA VOLTA"
       },
       foodHighlights: ["7-Eleven บ้านไร่", "ร้านอาหารใกล้ตัวอำเภอ", "ตลาดสดเทศบาลบ้านไร่"],
-      recommendedMenu: ["7-Eleven บ้านไร่", "ร้านอาหารใกล้ตัวอำเภอ", "ตลาดสดเทศบาลบ้านไร่"],
       tips: "จุดชาร์จสำรองใกล้ที่พัก",
       highlight: true
     },
@@ -301,7 +201,6 @@ const TRIP_DATA = {
       openingHours: "10:00 - 21:00 น. ทุกวัน",
       phone: "081-973-1245",
       foodHighlights: ["ต้มยำปลาคัง", "ปลาแรดทอดน้ำปลา", "กวางผัดเผ็ด", "ยำผักกูดกรอบ"],
-      recommendedMenu: ["ต้มยำปลาคัง", "ปลาแรดทอดน้ำปลา", "กวางผัดเผ็ด", "ยำผักกูดกรอบ"],
       tips: "ห่างจาก Owl Yard เพียง 3 กม. แนะนำมาช่วง 17:30 น. ชมวิวพระอาทิตย์ตก",
       highlight: true
     },
@@ -321,7 +220,6 @@ const TRIP_DATA = {
       openingHours: "09:30 - 20:30 น.",
       phone: "056-596-123",
       foodHighlights: ["ปลาแรดสามรส", "ทอดมันปลากรายแท้", "แกงป่าปลาคัง"],
-      recommendedMenu: ["ปลาแรดสามรส", "ทอดมันปลากรายแท้", "แกงป่าปลาคัง"],
       tips: "บรรยากาศร่มรื่นเหมาะสำหรับกลุ่มเพื่อนและครอบครัว",
       highlight: false
     },
@@ -340,7 +238,6 @@ const TRIP_DATA = {
       description: "ร้านอาหารตามสั่งและก๋วยเตี๋ยวรสเด็ด อยู่ใกล้กับลาน Owl Yard มาก (เพียง 1.5 กม.)",
       openingHours: "08:00 - 17:00 น.",
       foodHighlights: ["กะเพราเนื้อตุ๋น/หมูกรอบ", "ก๋วยเตี๋ยวต้มยำโบราณ", "อาหารจานด่วนใกล้ลาน"],
-      recommendedMenu: ["กะเพราเนื้อตุ๋น/หมูกรอบ", "ก๋วยเตี๋ยวต้มยำโบราณ"],
       tips: "อาหารจานด่วนใกล้ลานกางเต็นท์",
       highlight: false
     },
@@ -360,7 +257,6 @@ const TRIP_DATA = {
       openingHours: "10:00 - 20:00 น.",
       phone: "089-856-7890",
       foodHighlights: ["ราดหน้าหมูหมักยอดผัก", "ผัดซีอิ๊วทะเล", "หมี่กรอบราดหน้า"],
-      recommendedMenu: ["ราดหน้าหมูหมักยอดผัก", "ผัดซีอิ๊วทะเล", "หมี่กรอบราดหน้า"],
       tips: "หมี่กรอบราดหน้ารวมมิตรเด็ดมาก",
       highlight: false
     },
@@ -380,7 +276,6 @@ const TRIP_DATA = {
       openingHours: "09:00 - 16:00 น. (หมดแล้วปิด)",
       phone: "087-198-4567",
       foodHighlights: ["ผัดไทยกุ้งสดห่อไข่", "ผัดไทยกากหมูเตาถ่าน", "ซอสมะขามโบราณ"],
-      recommendedMenu: ["ผัดไทยกุ้งสดห่อไข่", "ผัดไทยกากหมูโบราณ"],
       tips: "เหมาะเป็นมื้อกลางวัน วันที่ 2 รสชาติอร่อยสมชื่อ",
       highlight: true
     },
@@ -400,7 +295,6 @@ const TRIP_DATA = {
       openingHours: "08:30 - 17:30 น. ทุกวัน",
       phone: "086-369-9541",
       foodHighlights: ["Signature Dirty Coffee", "Matcha Latte มะพร้าวสด", "ชีสเค้กหน้าไหม้"],
-      recommendedMenu: ["Signature Dirty Coffee", "Matcha Latte มะพร้าวสด", "ชีสเค้กหน้าไหม้"],
       tips: "แวะเช้าวันที่ 2 จิบกาแฟรับลมเย็นๆ ถ่ายรูปสวยมาก",
       highlight: true
     },
@@ -419,7 +313,6 @@ const TRIP_DATA = {
       description: "ต้นผึ้งยักษ์โบราณอายุกว่า 300-400 ปี ขนาดใหญ่ประมาณ 40 คนโอบ กลางป่าหมากเขียวขจี ร่มรื่น",
       openingHours: "เปิดทุกวัน 06:00 - 18:00 น.",
       foodHighlights: ["ตลาดชุมชนบ้านสะนำ", "น้ำสมุนไพรพื้นบ้าน", "ผลไม้สวนบ้านไร่"],
-      recommendedMenu: ["ตลาดชุมชนบ้านสะนำ", "น้ำสมุนไพรพื้นบ้าน", "ผลไม้สวนบ้านไร่"],
       tips: "มีตลาดชุมชนขายผัก ผลไม้ สินค้าพื้นเมือง ห่างจากลาน Owl Yard เพียง 4 กม.",
       highlight: true
     },
@@ -438,7 +331,6 @@ const TRIP_DATA = {
       description: "วัดสวยอันซีนที่มีอาคารเรือนไทย 4 ชั้นสร้างจากไม้สักริมหน้าผาหินปูนสูงใหญ่ มีสระน้ำด้านหน้า สงบร่มเย็น",
       openingHours: "08:00 - 16:30 น. ทุกวัน",
       foodHighlights: ["เรือนไทย 4 ชั้นไม้สัก", "จุดชมวิวผาหินปูน", "ร้านน้ำดื่มสมุนไพร"],
-      recommendedMenu: ["เรือนไทย 4 ชั้นไม้สัก", "จุดชมวิวผาหินปูน", "ร้านน้ำดื่มสมุนไพร"],
       tips: "อยู่ใกล้ลาน Owl Yard มาก (ขับ 10-15 นาที)",
       highlight: true
     },
@@ -457,7 +349,6 @@ const TRIP_DATA = {
       description: "ไฮไลท์ระดับประเทศ เดินลอดถ้ำมืดเข้าสู่หุบเขาที่ซ่อนป่าต้นตาดโบราณยุคจูราสสิก แหล่งอาศัยของกิ้งกือมังกรสีชมพู",
       openingHours: "08:30 - 16:00 น. ทุกวัน",
       foodHighlights: ["กาแฟชุมชนหุบป่าตาด", "ไอศกรีมกะทิสด", "ของที่ระลึกกิ้งกือมังกร"],
-      recommendedMenu: ["กาแฟชุมชนหุบป่าตาด", "ไอศกรีมกะทิสด", "ของที่ระลึกกิ้งกือมังกร"],
       tips: "มีไฟฉายให้ยืมเดินผ่านถ้ำ แนะนำใส่รองเท้าที่เดินสบาย",
       highlight: true
     },
@@ -484,7 +375,6 @@ const TRIP_DATA = {
         appNeeded: "EV Station PluZ"
       },
       foodHighlights: ["Cafe Amazon", "7-Eleven", "ข้าวมันไก่/ข้าวแกง", "ขนมปังสังขยาไพพรรณ (ใกล้เคียง)"],
-      recommendedMenu: ["Cafe Amazon", "7-Eleven", "ข้าวมันไก่/ข้าวแกง", "ขนมปังสังขยาไพพรรณ (ใกล้เคียง)"],
       tips: "จุดแวะชาร์จช่วงออกจากหุบป่าตาด-หนองฉาง",
       highlight: true
     },
@@ -503,7 +393,6 @@ const TRIP_DATA = {
       description: "วัดที่มีชื่อเสียงที่สุดของอุทัยธานี มีวิหารแก้ว 100 เมตรประดับกระจกโมเสกสะท้อนแสงระยิบระยับ และปราสาททองคำ",
       openingHours: "วิหารแก้วเปิด 2 รอบ: เช้า 09:00 - 11:45 น. / บ่าย 14:00 - 16:00 น.",
       foodHighlights: ["วิหารแก้ว 100 เมตร", "ปราสาททองคำ", "ร้านอาหารแพริมน้ำสะแกกรัง"],
-      recommendedMenu: ["วิหารแก้ว 100 เมตร", "ปราสาททองคำ", "ร้านอาหารแพริมน้ำสะแกกรัง"],
       tips: "วิหารแก้วปิดพักเที่ยง (11:45 - 14:00 น.) วางแผนให้ทันรอบบ่าย 14:00 น.",
       highlight: true
     },
@@ -530,7 +419,6 @@ const TRIP_DATA = {
         appNeeded: "แอป NEXMOEV หรือสแกน QR หน้าตู้"
       },
       foodHighlights: ["ห้องรับรอง VIP แอร์เย็น", "เก้าอี้นวดไฟฟ้าฟรี", "กาแฟสด & ขนม 24 ชม.", "ห้องน้ำติดแอร์ 5 ดาว"],
-      recommendedMenu: ["ห้องรับรอง VIP แอร์เย็น", "เก้าอี้นวดไฟฟ้าฟรี", "กาแฟสด & ขนม 24 ชม.", "ห้องน้ำติดแอร์ 5 ดาว"],
       tips: "แวะชาร์จขากลับ นั่งนวดพักผ่อนในห้องแอร์ฟรี ก่อนขับยาวกลับกรุงเทพฯ",
       highlight: true,
       isSuperHighlight: true
@@ -558,7 +446,6 @@ const TRIP_DATA = {
         appNeeded: "EleXA App"
       },
       foodHighlights: ["กาแฟพันธุ์ไทย (ปั๊ม PT)", "Max Mart สะดวกซื้อ", "จุดพักรถมโนรมย์"],
-      recommendedMenu: ["กาแฟพันธุ์ไทย (ปั๊ม PT)", "Max Mart สะดวกซื้อ", "จุดพักรถมโนรมย์"],
       tips: "จุดชาร์จคุณภาพสูงบนเส้นทางมโนรมย์",
       highlight: true
     },
@@ -585,7 +472,6 @@ const TRIP_DATA = {
         appNeeded: "EV Station PluZ"
       },
       foodHighlights: ["Cafe Amazon", "7-Eleven ขนาดใหญ่", "ศูนย์อาหารสายเอเชีย", "ของฝากเมืองชัยนาท"],
-      recommendedMenu: ["Cafe Amazon", "7-Eleven ขนาดใหญ่", "ศูนย์อาหารสายเอเชีย", "ของฝากเมืองชัยนาท"],
       tips: "จุดพักรถและชาร์จแบตเตอรี่บนถนนสายเอเชีย",
       highlight: true
     },
@@ -604,105 +490,339 @@ const TRIP_DATA = {
       description: "แหล่งท่องเที่ยวแลนด์มาร์คของชัยนาท มีกรงนกขนาดมหึมา และอุโมงค์พันธุ์ปลาน้ำจืดลุ่มน้ำเจ้าพระยา",
       openingHours: "08:00 - 17:00 น. ทุกวัน",
       foodHighlights: ["ศูนย์อาหารสวนนก", "ปลาแม่น้ำเจ้าพระยา", "ส้มโอขาวแตงกวาชัยนาท"],
-      recommendedMenu: ["ศูนย์อาหารสวนนก", "ปลาแม่น้ำเจ้าพระยา", "ส้มโอขาวแตงกวาชัยนาท"],
       tips: "จุดแวะพักเที่ยวในขากลับก่อนขึ้นถนนสายเอเชีย",
       highlight: true
     }
-  ],
-
-  // EV Car Camping Parameters & Tips
-  evCampingGuide: {
-    title: "คู่มือเทคนิคการนอนในรถ EV (EV Car Camping Guide)",
-    powerRule: {
-      hourlyConsumption: "0.8 - 1.2 kW/ชม. (เปิดแอร์ 24-25°C ภายนอก 22-26°C)",
-      eightHoursUsage: "6.4 - 9.6 kWh (~10% - 16% ขึ้นกับขนาดแบตเตอรี่)",
-      tenHoursUsage: "8.0 - 12.0 kWh (~12% - 20% ขึ้นกับขนาดแบตเตอรี่)",
-      danChangMargin: "จาก PTT ด่านช้าง ขับ 45 กม. ใช้ไฟ ~6-8 kWh หากชาร์จมา 90% จะถึงลานที่ ~78-82% นอนทั้งคืน 8 ชม. จะเหลือ ~63-68% ปลอดภัย 100%"
-    },
-    carBrandsCampMode: [
-      {
-        brand: "Tesla (Model Y / 3)",
-        modeName: "Camp Mode",
-        steps: "แตะไอคอนแอร์ -> เลือก 'Camp' ระบบจะคงอุณหภูมิ, ปิดไฟหน้า DRL อัตโนมัติ, จอจะแสดงภาพแคมป์ไฟและหรี่แสงลง"
-      },
-      {
-        brand: "BYD (Atto 3 / Dolphin / Seal / Sealion 6)",
-        modeName: "Keep AC On / ปล่อยแอร์ทำงาน",
-        steps: "สตาร์ทรถไว้ตามปกติ -> เข้า Settings ปิด Daytime Running Light (DRL) -> ล็อกประตูจากด้านใน -> แตะแถบควบคุมแอร์ หรือตั้งเวลาแอร์"
-      },
-      {
-        brand: "MG (MG4 / ZS EV / EP / Maxus 7,9)",
-        modeName: "Ready Mode / Sleep AC",
-        steps: "เหยียบเบรกให้อยู่สถานะ Ready -> เข้าเมนูไฟหน้าเลือก Off -> ปิดเสียงสังเคราะห์คนเดินเท้า -> ล็อกรถจากสวิตช์ประตูด้านใน"
-      },
-      {
-        brand: "GWM (ORA Good Cat / 07 / Haval)",
-        modeName: "Pet Mode / Camp Mode",
-        steps: "เปิดโหมดสัตว์เลี้ยง (Pet Mode) หรือเปิดระบบแอร์คงที่ -> ปิดไฟหน้าอัตโนมัติ -> หรี่แสงหน้าจอกลางให้น้อยที่สุด"
-      },
-      {
-        brand: "Changan (Deepal S07 / L07)",
-        modeName: "Nap Mode / Camp Mode",
-        steps: "เลือก Scene Mode -> Camp Mode เบาะจะปรับเอน แอร์ทำงานต่อเนื่อง ปิดไฟรอบคันอัตโนมัติ"
-      },
-      {
-        brand: "Aion / Neta / อื่นๆ",
-        modeName: "Keep Climate / Rest Mode",
-        steps: "ตั้งค่าระบบปรับอากาศคงที่ 24-25°C ปิดไฟหน้ารถ ล็อกประตูจากภายใน"
-      }
-    ],
-    proTips: [
-      {
-        title: "ม่านบังแดดรอบคัน (Custom Sunshades)",
-        desc: "จำเป็นอย่างยิ่งสำหรับการ Car Camping ช่วยรักษาความเย็นภายในห้องโดยสาร และให้ความเป็นส่วนตัว 100%"
-      },
-      {
-        title: "ฟูกเป่าลมสำหรับรถยนต์ (Air Mattress / Foam Mat)",
-        desc: "พับเบาะหลังแถว 2 ให้เรียบ วางฟูกเป่าลมความหนา 5-10 ซม. พร้อมหมอนผ้าห่ม นอนสบายไม่ต่างจากห้องนอน"
-      },
-      {
-        title: "ระบบ V2L (Vehicle to Load)",
-        desc: "หากรถรองรับ V2L สามารถเสียบปลั๊กจ่ายไฟ 220V ให้กับกาน้ำร้อน, โคมไฟแคมป์, พัดลม หรือหม้อต้มชาบูได้ที่ลาน Owl Yard"
-      },
-      {
-        title: "ตั้งอุณหภูมิแอร์ที่ 24-25°C พัดลมเบอร์ 1-2",
-        desc: "ที่บ้านไร่ช่วงกลางคืนอากาศเย็นสบาย การตั้งแอร์ 24-25°C จะทำให้คอมเพรสเซอร์แอร์ตัดบ่อย ประหยัดพลังงานเหลือเพียง 0.8 kW/ชม."
-      }
-    ],
-    emergencyContacts: [
-      { name: "NEXMOEV Station Call Center", phone: "086-311-4422" },
-      { name: "EV Station PluZ Call Center", phone: "1365" },
-      { name: "PEA VOLTA Call Center", phone: "1129" },
-      { name: "EleX by EGAT Call Center", phone: "02-436-1111" },
-      { name: "สายด่วนตำรวจทางหลวง", phone: "1193" },
-      { name: "สายด่วนกู้ภัย / อุบัติเหตุ", phone: "1669" }
-    ]
-  },
-
-  // EV Vehicle Presets (Thai EV Market 2026)
-  evPresets: [
-    { id: "byd_atto3_ext", brand: "BYD", model: "Atto 3 (Extended)", name: "BYD Atto 3 (Extended)", batteryCap: 60.5, capacity: 60.5, consumption: 0.160, efficiency: 0.160 },
-    { id: "byd_atto3_std", brand: "BYD", model: "Atto 3 (Standard)", name: "BYD Atto 3 (Standard)", batteryCap: 49.9, capacity: 49.9, consumption: 0.155, efficiency: 0.155 },
-    { id: "byd_dolphin_std", brand: "BYD", model: "Dolphin (Standard)", name: "BYD Dolphin (Standard)", batteryCap: 44.9, capacity: 44.9, consumption: 0.140, efficiency: 0.140 },
-    { id: "byd_dolphin_ext", brand: "BYD", model: "Dolphin (Extended)", name: "BYD Dolphin (Extended)", batteryCap: 60.5, capacity: 60.5, consumption: 0.150, efficiency: 0.150 },
-    { id: "byd_seal_dyn", brand: "BYD", model: "Seal (Dynamic)", name: "BYD Seal (Dynamic)", batteryCap: 61.4, capacity: 61.4, consumption: 0.155, efficiency: 0.155 },
-    { id: "byd_seal_prm", brand: "BYD", model: "Seal (Premium/AWD)", name: "BYD Seal (Premium/AWD)", batteryCap: 82.5, capacity: 82.5, consumption: 0.170, efficiency: 0.170 },
-    { id: "tesla_my_rwd", brand: "Tesla", model: "Model Y (RWD)", name: "Tesla Model Y (RWD)", batteryCap: 60.0, capacity: 60.0, consumption: 0.160, efficiency: 0.160 },
-    { id: "tesla_my_lr", brand: "Tesla", model: "Model Y (Long Range)", name: "Tesla Model Y (Long Range)", batteryCap: 78.1, capacity: 78.1, consumption: 0.170, efficiency: 0.170 },
-    { id: "tesla_m3_rwd", brand: "Tesla", model: "Model 3 (RWD)", name: "Tesla Model 3 (RWD)", batteryCap: 60.0, capacity: 60.0, consumption: 0.145, efficiency: 0.145 },
-    { id: "mg_mg4_std", brand: "MG", model: "MG4 Electric (Standard)", name: "MG4 Electric (Standard)", batteryCap: 51.0, capacity: 51.0, consumption: 0.155, efficiency: 0.155 },
-    { id: "mg_mg4_lr", brand: "MG", model: "MG4 Electric (Long Range)", name: "MG4 Electric (Long Range)", batteryCap: 64.0, capacity: 64.0, consumption: 0.160, efficiency: 0.160 },
-    { id: "mg_zs_ev", brand: "MG", model: "MG ZS EV", name: "MG ZS EV", batteryCap: 50.3, capacity: 50.3, consumption: 0.170, efficiency: 0.170 },
-    { id: "gwm_goodcat_400", brand: "GWM", model: "ORA Good Cat 400 Pro", name: "ORA Good Cat 400 Pro", batteryCap: 47.8, capacity: 47.8, consumption: 0.145, efficiency: 0.145 },
-    { id: "gwm_goodcat_500", brand: "GWM", model: "ORA Good Cat 500 Ultra", name: "ORA Good Cat 500 Ultra", batteryCap: 63.1, capacity: 63.1, consumption: 0.150, efficiency: 0.150 },
-    { id: "changan_s07", brand: "Deepal", model: "Deepal S07", name: "Deepal S07", batteryCap: 66.8, capacity: 66.8, consumption: 0.170, efficiency: 0.170 },
-    { id: "changan_l07", brand: "Deepal", model: "Deepal L07", name: "Deepal L07", batteryCap: 66.8, capacity: 66.8, consumption: 0.160, efficiency: 0.160 },
-    { id: "aion_y_plus", brand: "Aion", model: "Aion Y Plus 490/510", name: "Aion Y Plus 490/510", batteryCap: 63.2, capacity: 63.2, consumption: 0.160, efficiency: 0.160 },
-    { id: "custom", brand: "Custom", model: "กำหนดขนาดเอง (Custom)", name: "กำหนดขนาดเอง (Custom)", batteryCap: 60.0, capacity: 60.0, consumption: 0.160, efficiency: 0.160 }
   ]
-};
+```
 
-if (typeof module !== 'undefined' && module.exports) {
-  module.exports = TRIP_DATA;
+---
+
+## 3. Redesigned Driver Stop Card Architecture
+
+### 3.1 UX & Ergonomics Principles
+1. **Scannability in Daylight (< 3 seconds)**:
+   - Visual hierarchy: Place name (large 1.05rem bold) ➔ Distance & Charging Speed Badges ➔ Signature Food Chips ➔ 1-Tap CTA.
+   - Distinct color-coded category badges (`badge-green`, `badge-amber`, `badge-red`, `badge-purple`, `badge-blue`) and phase badges (`badge-green`, `badge-amber`, `badge-blue`).
+2. **Driver 1-Tap Navigation**:
+   - High-visibility full-width CTA button (`.btn-driver-nav`) with minimum **48px** vertical height.
+   - Directly calls Google Maps native turn-by-turn intent via `navUrl` with explicit destination coordinates.
+3. **Card-Marker Bidirectional Affordance**:
+   - Entire card surface is touch-friendly; clicking the card body selects the item and centers the map.
+   - The CTA button has `stopPropagation` or distinct link behavior so tapping navigation does not disrupt map interaction.
+
+---
+
+### 3.2 Stop Card HTML Template
+
+```html
+<article class="stop-card ${place.isSuperHighlight ? 'super-highlight' : ''}" data-place-id="${place.id}" data-phase="${place.phase}" data-category="${place.category}">
+  <div class="stop-card-header">
+    <div class="stop-card-title-group">
+      <h3 class="stop-card-name">${place.name}</h3>
+      <span class="stop-card-sub">${place.subCategory}</span>
+    </div>
+    <div class="stop-card-badges">
+      <span class="badge ${getPhaseBadgeClass(place.phase)}">${getPhaseBadgeText(place.phase)}</span>
+      <span class="badge ${getCategoryBadgeClass(place.category)}">${getCategoryName(place.category)}</span>
+    </div>
+  </div>
+
+  <div class="stop-card-metrics">
+    <span class="metric-pill dist">
+      <i data-lucide="navigation-2" style="width: 13px; height: 13px;"></i>
+      <span>${place.distanceFromOrigin} กม. จากบ้าน</span>
+    </span>
+    ${place.powerKw ? `
+      <span class="metric-pill charger">
+        <i data-lucide="zap" style="width: 13px; height: 13px;"></i>
+        <span>⚡ ${place.powerKw} kW (${place.networkApp || 'DC Fast'})</span>
+      </span>
+    ` : ''}
+    ${place.plugType ? `
+      <span class="metric-pill plug">
+        <i data-lucide="plug-2" style="width: 13px; height: 13px;"></i>
+        <span>${place.plugType}</span>
+      </span>
+    ` : ''}
+  </div>
+
+  ${place.foodHighlights && place.foodHighlights.length > 0 ? `
+    <div class="stop-food-section">
+      <span class="food-label">🍽️ แนะนำ:</span>
+      <div class="food-pills-wrap">
+        ${place.foodHighlights.slice(0, 3).map(food => `
+          <span class="food-pill">${food}</span>
+        `).join('')}
+      </div>
+    </div>
+  ` : ''}
+
+  ${place.tips ? `
+    <div class="stop-card-tip">
+      <i data-lucide="info" style="width: 14px; height: 14px; flex-shrink: 0; color: var(--primary);"></i>
+      <span>${place.tips}</span>
+    </div>
+  ` : ''}
+
+  <div class="stop-card-footer">
+    <a href="${place.navUrl}" target="_blank" rel="noopener" class="btn-driver-nav" aria-label="นำทางไป ${place.name}">
+      <i data-lucide="navigation" style="width: 16px; height: 16px;"></i>
+      <span>🚗 นำทาง (Navigate)</span>
+    </a>
+  </div>
+</article>
+```
+
+---
+
+### 3.3 CSS Stylesheet Rules (To be placed in `style.css`)
+
+```css
+/* ==========================================================================
+   Driver Stop Card Styles (Milestone 2 Specification)
+   ========================================================================== */
+
+.stop-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.2s ease,
+              box-shadow 0.2s ease,
+              background-color 0.2s ease;
 }
 
+.stop-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.stop-card.active,
+.stop-card.selected {
+  border-color: var(--primary);
+  background: var(--bg-card);
+  box-shadow: 0 0 0 2px var(--primary), var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.stop-card.super-highlight {
+  border-color: var(--accent-purple);
+  background: linear-gradient(135deg, rgba(126, 34, 206, 0.05) 0%, rgba(4, 120, 87, 0.05) 100%), var(--bg-card);
+}
+
+[data-theme="dark"] .stop-card.super-highlight {
+  background: linear-gradient(135deg, rgba(192, 132, 252, 0.1) 0%, rgba(52, 211, 153, 0.1) 100%), var(--bg-card);
+}
+
+/* Header & Title Group */
+.stop-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.stop-card-title-group {
+  flex: 1;
+  min-width: 0;
+}
+
+.stop-card-name {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-bottom: 0.2rem;
+}
+
+.stop-card-sub {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+
+.stop-card-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+  flex-shrink: 0;
+}
+
+/* Metric Pills Row */
+.stop-card-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.metric-pill.charger {
+  background: var(--primary-light);
+  color: var(--primary-hover);
+  border-color: rgba(4, 120, 87, 0.3);
+  font-weight: 800;
+}
+
+[data-theme="dark"] .metric-pill.charger {
+  background: rgba(52, 211, 153, 0.16);
+  color: #6ee7b7;
+  border-color: rgba(52, 211, 153, 0.35);
+}
+
+.metric-pill.plug {
+  background: var(--bg-card-subtle);
+  color: var(--text-secondary);
+  border-color: var(--border-color);
+  font-size: 0.775rem;
+}
+
+/* Food & Chill Highlights */
+.stop-food-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  background: var(--bg-card-subtle);
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--border-color);
+}
+
+.food-label {
+  font-size: 0.775rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+}
+
+.food-pills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.food-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: 0.775rem;
+  font-weight: 600;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+/* Stop Card Tips */
+.stop-card-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+  padding: 0.5rem 0.75rem;
+  background: rgba(4, 120, 87, 0.06);
+  border-left: 3px solid var(--primary);
+  border-radius: var(--radius-sm);
+}
+
+[data-theme="dark"] .stop-card-tip {
+  background: rgba(52, 211, 153, 0.08);
+}
+
+/* 1-Tap Navigation Button (>=48px Touch Cylinder) */
+.btn-driver-nav {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  min-height: 48px;
+  padding: 0.75rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: var(--primary);
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  text-decoration: none;
+  cursor: pointer;
+  touch-action: manipulation;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 8px var(--primary-glow);
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-driver-nav:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 4px 14px var(--primary-glow);
+  transform: translateY(-1px);
+  color: #ffffff;
+}
+
+.btn-driver-nav:active {
+  transform: scale(0.97);
+  box-shadow: 0 1px 4px var(--primary-glow);
+}
+```
+
+---
+
+## 4. Helper Functions for Card Rendering in `app.js`
+
+```javascript
+function getPhaseBadgeClass(phase) {
+  switch (phase) {
+    case 'outbound': return 'badge-green';
+    case 'campsite': return 'badge-amber';
+    case 'inbound': return 'badge-blue';
+    default: return 'badge-blue';
+  }
+}
+
+function getPhaseBadgeText(phase) {
+  switch (phase) {
+    case 'outbound': return '🟢 ขาไป';
+    case 'campsite': return '🏕️ รอบแคมป์';
+    case 'inbound': return '🟡 ขากลับ';
+    default: return '📍 การเดินทาง';
+  }
+}
+
+function getCategoryBadgeClass(category) {
+  switch (category) {
+    case 'charger': return 'badge-green';
+    case 'camp': return 'badge-amber';
+    case 'food': return 'badge-red';
+    case 'cafe': return 'badge-purple';
+    case 'poi': return 'badge-blue';
+    default: return 'badge-blue';
+  }
+}
+```
+
+---
+
+## 5. Verification & Acceptance Criteria
+
+1. **Syntax Integrity**:
+   - `node --check data.js` executes without error.
+   - `node --check app.js` executes without error.
+2. **Data Coverage**:
+   - Exactly 20 places defined in `TRIP_DATA.places`.
+   - 100% of places contain valid `phase` ('outbound' | 'campsite' | 'inbound') and valid `navUrl`.
+   - All chargers contain `powerKw`, `plugType`, and `networkApp`.
+   - All food and POI entries contain `foodHighlights`.
+3. **Ergonomic Compliance**:
+   - All `.btn-driver-nav` elements have `min-height: 48px`.
+   - All badges and text meet WCAG AA daylight contrast ratios (>=4.5:1).

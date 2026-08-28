@@ -2,7 +2,7 @@
 <html lang="th" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>EV Camp Trip: แผนที่ทิศทาง & จุดชาร์จกินข้าว บ้านไร่ - NEXMOEV</title>
   <meta name="description" content="แผนที่ทิศทางเส้นทางขาไป-ขากลับ และจุดแวะชาร์จกินข้าวชิลๆ สำหรับทริปแคมป์ปิ้งรถยนต์ไฟฟ้า 2 คัน นนทบุรี - บ้านไร่ Owl Yard - NEXMOEV">
   
@@ -22,7 +22,7 @@
 </head>
 <body>
 
-  <!-- Top Header Navigation (Clean 3 Tabs) -->
+  <!-- Top Header Navigation -->
   <header class="header-wrapper">
     <div class="container header-container">
       <div class="logo-group">
@@ -31,29 +31,29 @@
         </div>
         <div class="logo-text">
           <h1>EV Camp Trip Planner</h1>
-          <p>แผนที่ทิศทาง • แวะชาร์จ&กิน • Owl Yard บ้านไร่ • NEXMOEV</p>
+          <p>แผนที่ทิศทาง • จุดแวะชาร์จ & กิน • Owl Yard บ้านไร่ • NEXMOEV</p>
         </div>
       </div>
 
-      <!-- Desktop Nav Tabs (3 Tabs Only) -->
-      <nav class="nav-desktop">
-        <button class="nav-btn active" data-tab="tab-map">
-          <i data-lucide="map" style="width: 16px; height: 16px;"></i>
-          <span>แผนที่ทิศทางเส้นทาง</span>
+      <!-- Desktop Nav Tabs (2 Consolidated Views) -->
+      <nav class="nav-desktop" role="tablist" aria-label="Main Navigation">
+        <button class="nav-btn active" id="navTabTrip" data-tab="tab-map" data-view="view-trip" role="tab" aria-selected="true" aria-controls="tab-map">
+          <i data-lucide="map" style="width: 18px; height: 18px;"></i>
+          <span>🗺️ แผนที่ & จุดแวะ</span>
         </button>
-        <button class="nav-btn" data-tab="tab-charge-chill">
-          <i data-lucide="utensils" style="width: 16px; height: 16px;"></i>
-          <span>แวะชาร์จ & กินไหนดี?</span>
-        </button>
-        <button class="nav-btn" data-tab="tab-simulator">
-          <i data-lucide="battery-charging" style="width: 16px; height: 16px;"></i>
-          <span>คำนวณแบตฯ (2 คัน)</span>
+        <button class="nav-btn" id="navTabSim" data-tab="tab-simulator" data-view="view-simulator" role="tab" aria-selected="false" aria-controls="tab-simulator">
+          <i data-lucide="battery-charging" style="width: 18px; height: 18px;"></i>
+          <span>⚡ จำลองแบต 2 คัน</span>
         </button>
       </nav>
 
-      <!-- Actions (Theme Switcher) -->
+      <!-- Header Actions (Camp Guide Modal Trigger + Theme Switcher) -->
       <div class="header-actions">
-        <button id="themeToggleBtn" class="theme-toggle-btn" title="เปลี่ยนธีม มืด/สว่าง">
+        <button id="btnOpenCampGuideHeader" class="header-action-btn" title="คู่มือแคมป์ & เบอร์ฉุกเฉิน" aria-label="เปิดคู่มือแคมป์และเบอร์ฉุกเฉิน" aria-haspopup="dialog">
+          <i data-lucide="book-open" style="width: 18px; height: 18px;"></i>
+          <span class="btn-text-desktop">คู่มือ & SOS</span>
+        </button>
+        <button id="themeToggleBtn" class="theme-toggle-btn" title="เปลี่ยนธีม มืด/สว่าง" aria-label="เปลี่ยนธีม">
           <span id="themeIcon">
             <i data-lucide="moon" style="width: 20px; height: 20px;"></i>
           </span>
@@ -77,49 +77,45 @@
         
         <h2 class="hero-title">แผนที่ทิศทาง & จุดแวะชาร์จกินข้าว ทริปแคมป์ปิ้งบ้านไร่</h2>
         <p class="hero-desc">
-          เน้นดูง่าย ใช้งานสะดวกบนมือถือ: <strong>ดูทิศทางเส้นทางบนแผนที่ (🟢 ขาไป vs 🟡 ขากลับ)</strong>, ดูคำแนะนำ <strong>"แวะชาร์จจุดไหนมีร้านข้าว/กาแฟในตัว"</strong> และคำนวณไฟเปิดแอร์นอนในรถสำหรับ 2 คัน ไร้กังวลเรื่องแบตเตอรี่ครับ
+          คู่มือการเดินทางสำหรับขบวน EV 2 คัน (นนทบุรี ➔ Owl Yard บ้านไร่ ➔ NEXMOEV): ดูเส้นทาง <strong>🟢 ขาไป vs 🟡 ขากลับ</strong>, ค้นหาจุดแวะชาร์จที่มีร้านอาหาร/กาแฟในตัว และคำนวณไฟเปิดแอร์นอนในรถได้อย่างแม่นยำ
         </p>
 
-        <!-- Quick Action Buttons -->
-        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem;">
+        <!-- Quick Jump Buttons -->
+        <div class="hero-quick-actions">
           <button class="btn-nav-full" data-goto-tab="tab-map" style="width: auto; padding: 0.55rem 1.2rem;">
             <i data-lucide="map" style="width: 16px; height: 16px;"></i>
-            <span>ดูแผนที่ทิศทาง</span>
+            <span>ดูแผนที่ & จุดแวะ</span>
           </button>
-          <button class="btn-nav-full" data-goto-tab="tab-charge-chill" style="width: auto; padding: 0.55rem 1.2rem; background: var(--bg-card-subtle); color: var(--text-primary); border: 1px solid var(--border-color);">
-            <i data-lucide="utensils" style="width: 16px; height: 16px;"></i>
-            <span>ดูร้านอาหาร & จุดชาร์จ</span>
-          </button>
-          <button class="btn-nav-full" data-goto-tab="tab-simulator" style="width: auto; padding: 0.55rem 1.2rem; background: #3b82f6;">
+          <button class="btn-nav-full btn-secondary" data-goto-tab="tab-simulator" style="width: auto; padding: 0.55rem 1.2rem;">
             <i data-lucide="battery-charging" style="width: 16px; height: 16px;"></i>
-            <span>คำนวณไฟนอนในรถ (2 คัน)</span>
+            <span>จำลองแบต 2 คัน</span>
           </button>
         </div>
       </div>
     </section>
 
     <!-- ==================================================================== -->
-    <!-- TAB 1: DIRECTIONAL MAP (FIRST & DEFAULT TAB) -->
+    <!-- VIEW 1: TRIP & ROUTE (MAP + STOPS + CHARGE/CHILL) -->
     <!-- ==================================================================== -->
-    <section id="tab-map" class="tab-content active">
+    <section id="tab-map" class="tab-content view-content active" role="tabpanel" aria-labelledby="navTabTrip">
       <div class="section-header">
         <h2 class="section-title">
           <i data-lucide="map-pin" style="color: var(--primary);"></i>
-          <span>แผนที่ทิศทางเส้นทาง (🟢 ขาไป ➔ 🟡 ขากลับ)</span>
+          <span>แผนที่ทิศทาง & จุดแวะทั้งหมด (🟢 ขาไป ➔ 🟡 ขากลับ)</span>
         </h2>
-        <p class="section-desc">คลิกที่หมุดหรือรายชื่อสถานที่ด้านซ้ายเพื่อดูรายละเอียด และกดเปิด Google Maps นำทางได้ทันที</p>
+        <p class="section-desc">คลิกที่หมุดบนแผนที่หรือการ์ดสถานที่เพื่อดูข้อมูลร้านอาหาร จุดชาร์จ และกดเปิด Google Maps นำทางได้ทันที</p>
       </div>
 
       <!-- Direction Flow Legend Box -->
-      <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem 1.25rem; margin-bottom: 1.25rem; display: grid; grid-template-columns: 1fr; gap: 0.75rem;">
-        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
-          <span style="display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: #10b981; flex-shrink: 0;"></span>
+      <div class="route-legend-card">
+        <div class="legend-row">
+          <span class="legend-dot dot-outbound"></span>
           <div>
             <strong>🟢 เส้นทางขาไป:</strong> ออก 09:00 น. นนทบุรี ➔ สุพรรณบุรี (สามชุก) ➔ PTT ด่านช้าง (★ ชาร์จเต็ม 90-95%) ➔ Owl Yard บ้านไร่ (~220 กม.)
           </div>
         </div>
-        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
-          <span style="display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: #f59e0b; flex-shrink: 0;"></span>
+        <div class="legend-row legend-row-inbound">
+          <span class="legend-dot dot-inbound"></span>
           <div>
             <strong>🟡 เส้นทางขากลับ:</strong> บ้านไร่ ➔ หุบป่าตาด ➔ วัดท่าซุง ➔ ⭐ NEXMOEV พยุหะคีรี (12 ตู้ 120 kW + นวดแอร์ฟรี) ➔ ชัยนาท ➔ สายเอเชียกลับบ้าน (~325 กม.)
           </div>
@@ -127,201 +123,478 @@
       </div>
 
       <div class="map-layout">
-        <!-- Map Sidebar -->
+        <!-- Map Sidebar / Stop Cards Directory -->
         <div class="map-sidebar">
-          <div>
-            <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase;">
-              กรองตามหมวดหมู่
+          <!-- Journey Phase Segmented Control -->
+          <div class="sidebar-phase-section">
+            <div class="sidebar-phase-title">
+              ช่วงการเดินทาง (Journey Phase)
             </div>
-            <div id="mapFilterGroup" class="filter-group">
-              <!-- Injected dynamically -->
+            <div id="phaseFilterGroup" class="phase-filter-group" role="tablist" aria-label="Journey Phase Filter">
+              <button class="phase-btn active" data-phase="all" role="tab" aria-selected="true">
+                <i data-lucide="compass" style="width: 16px; height: 16px;"></i>
+                <span>ทั้งหมด</span>
+              </button>
+              <button class="phase-btn phase-btn-outbound" data-phase="outbound" role="tab" aria-selected="false">
+                <span class="phase-dot dot-outbound"></span>
+                <span>🟢 ขาไป</span>
+              </button>
+              <button class="phase-btn phase-btn-camp" data-phase="campsite" role="tab" aria-selected="false">
+                <span class="phase-dot dot-camp"></span>
+                <span>🏕️ รอบแคมป์</span>
+              </button>
+              <button class="phase-btn phase-btn-inbound" data-phase="inbound" role="tab" aria-selected="false">
+                <span class="phase-dot dot-inbound"></span>
+                <span>🟡 ขากลับ</span>
+              </button>
             </div>
           </div>
 
-          <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+          <div>
+            <div class="sidebar-filter-title">
+              กรองตามหมวดหมู่
+            </div>
+            <div id="mapFilterGroup" class="filter-group">
+              <!-- Injected dynamically by JS -->
+            </div>
+          </div>
+
+          <div class="sidebar-places-title">
             สถานที่และจุดชาร์จทั้งหมด
           </div>
 
           <div id="mapPlacesList" class="map-places-list">
-            <!-- Injected dynamically -->
+            <!-- Injected dynamically by JS -->
           </div>
         </div>
 
         <!-- Map Leaflet Container -->
         <div class="map-container-wrapper">
           <div id="map"></div>
+          <div class="map-gesture-overlay" aria-hidden="true">
+            <div class="map-gesture-pill">
+              <i data-lucide="hand" style="width: 18px; height: 18px;"></i>
+              <span>📱 ใช้ 2 นิ้วเพื่อเลื่อนแผนที่ (Use 2 fingers to pan)</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ==================================================================== -->
-    <!-- TAB 2: CHARGE & CHILL HUBS (2ND TAB SUGGESTION) -->
     <!-- ==================================================================== -->
-    <section id="tab-charge-chill" class="tab-content">
+    <!-- VIEW 2: 2-CAR EV SIMULATOR -->
+    <!-- ==================================================================== -->
+    <section id="tab-simulator" class="tab-content view-content" role="tabpanel" aria-labelledby="navTabSim">
       <div class="section-header">
         <h2 class="section-title">
-          <i data-lucide="utensils" style="color: var(--primary);"></i>
-          <span>แวะร้านที่มีที่ชาร์จตรงไหนได้บ้าง? (Charge & Chill Hubs)</span>
-        </h2>
-        <p class="section-desc">รวมพิกัดสถานีชาร์จ DC Fast Charger พร้อมข้อมูลร้านอาหาร กาแฟ ของกิน และกิจกรรมระหว่างรอชาร์จไฟ</p>
-      </div>
-
-      <div id="chargeAndChillContainer">
-        <!-- Injected dynamically from data.js -->
-      </div>
-    </section>
-
-    <!-- ==================================================================== -->
-    <!-- TAB 3: EV BATTERY & 2-CAR COMPARISON SIMULATOR -->
-    <!-- ==================================================================== -->
-    <section id="tab-simulator" class="tab-content">
-      <div class="section-header">
-        <h2 class="section-title">
-          <i data-lucide="battery-charging" style="color: #10b981;"></i>
+          <i data-lucide="battery-charging" style="color: var(--primary);"></i>
           <span>เครื่องคำนวณแบตเตอรี่ & เปรียบเทียบ 2 คัน (2-Car EV Simulator)</span>
         </h2>
-        <p class="section-desc">ปรับความจุแบตเตอรี่ของรถคันที่ 1 และคันที่ 2 เพื่อดูการใช้พลังงานแอร์ตอนนอนและระยะทางที่เหลือของทั้งสองคัน</p>
+        <p class="section-desc">เลือกรุ่นรถ ปรับระดับความเย็นแอร์ และเปิดระบบ V2L เพื่อจำลองพลังงานแบตเตอรี่และระยะทางคงเหลือของทั้งสองคันได้อย่างแม่นยำ</p>
       </div>
 
       <div class="simulator-layout">
-        <!-- Simulator Controls -->
+        <!-- Simulator Controls Panel -->
         <div class="sim-panel">
-          <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+          <h3 class="sim-panel-title">
             <i data-lucide="sliders" style="color: var(--primary); width: 20px; height: 20px;"></i>
-            <span>ตั้งค่าความจุแบตเตอรี่รถทั้ง 2 คัน</span>
+            <span>เลือกรุ่นรถ & สภาพแวดล้อมขบวน</span>
           </h3>
 
-          <!-- Car 1 Battery Capacity -->
-          <div class="sim-slider-group" style="background: rgba(16, 185, 129, 0.05); padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid rgba(16, 185, 129, 0.2);">
+          <!-- Car 1 Model Preset & Capacity -->
+          <div class="sim-slider-group group-car1">
             <div class="sim-slider-header">
-              <span class="sim-label" style="color: #10b981;">🚗 รถคันที่ 1 (Car 1 Battery)</span>
-              <span id="valCar1Cap" class="sim-val-display">60 kWh</span>
+              <span class="sim-label text-car1">🚗 รถคันที่ 1 (Car 1 Model)</span>
+              <span id="valCar1Cap" class="sim-val-display">60.5 kWh</span>
             </div>
-            <input type="range" id="simCar1Cap" class="custom-range" min="35" max="110" step="1" value="60">
-            <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem;">
-              <span>35 kWh (City)</span>
-              <span>60 kWh (Standard)</span>
-              <span>100+ kWh</span>
+            <div class="sim-select-wrap">
+              <select id="simCar1Model" class="sim-preset-select" aria-label="เลือกรุ่นรถคันที่ 1">
+                <!-- Options populated dynamically from TRIP_DATA.evPresets -->
+              </select>
+            </div>
+            <div class="custom-cap-drawer" id="c1CustomDrawer">
+              <div class="custom-cap-header">
+                <span class="custom-cap-label">ปรับความจุเอง:</span>
+                <span class="custom-cap-val" id="c1SliderLabel">60.5 kWh</span>
+              </div>
+              <input type="range" id="simCar1Cap" class="custom-range" min="35" max="110" step="0.1" value="60.5" aria-label="ความจุแบตเตอรี่รถคันที่ 1">
+              <div class="slider-scale-labels">
+                <span>35 kWh (City)</span>
+                <span>60 kWh (Standard)</span>
+                <span>110 kWh (Long Range)</span>
+              </div>
             </div>
           </div>
 
-          <!-- Car 2 Battery Capacity -->
-          <div class="sim-slider-group" style="background: rgba(59, 130, 246, 0.05); padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid rgba(59, 130, 246, 0.2); margin-top: 1rem;">
+          <!-- Car 2 Model Preset & Capacity -->
+          <div class="sim-slider-group group-car2">
             <div class="sim-slider-header">
-              <span class="sim-label" style="color: #3b82f6;">🚙 รถคันที่ 2 (Car 2 Battery)</span>
-              <span id="valCar2Cap" class="sim-val-display" style="color: #3b82f6;">50 kWh</span>
+              <span class="sim-label text-car2">🚙 รถคันที่ 2 (Car 2 Model)</span>
+              <span id="valCar2Cap" class="sim-val-display text-car2">44.9 kWh</span>
             </div>
-            <input type="range" id="simCar2Cap" class="custom-range" min="35" max="110" step="1" value="50" style="accent-color: #3b82f6;">
-            <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem;">
-              <span>35 kWh (City)</span>
-              <span>50 kWh (Standard)</span>
-              <span>100+ kWh</span>
+            <div class="sim-select-wrap">
+              <select id="simCar2Model" class="sim-preset-select select-car2" aria-label="เลือกรุ่นรถคันที่ 2">
+                <!-- Options populated dynamically from TRIP_DATA.evPresets -->
+              </select>
+            </div>
+            <div class="custom-cap-drawer" id="c2CustomDrawer">
+              <div class="custom-cap-header">
+                <span class="custom-cap-label">ปรับความจุเอง:</span>
+                <span class="custom-cap-val" id="c2SliderLabel">44.9 kWh</span>
+              </div>
+              <input type="range" id="simCar2Cap" class="custom-range range-car2" min="35" max="110" step="0.1" value="44.9" aria-label="ความจุแบตเตอรี่รถคันที่ 2">
+              <div class="slider-scale-labels">
+                <span>35 kWh (City)</span>
+                <span>50 kWh (Standard)</span>
+                <span>110 kWh (Long Range)</span>
+              </div>
             </div>
           </div>
 
-          <!-- Camping Sleep Hours -->
-          <div class="sim-slider-group" style="margin-top: 1.25rem;">
-            <div class="sim-slider-header">
-              <span class="sim-label">จำนวนชั่วโมงนอนเปิดแอร์ในรถ (Sleep Hours)</span>
-              <span id="valSleepHours" class="sim-val-display">8 ชม.</span>
-            </div>
-            <input type="range" id="simSleepHours" class="custom-range" min="4" max="12" step="1" value="8">
-          </div>
-
-          <!-- AC Power Consumption -->
-          <div class="sim-slider-group">
-            <div class="sim-slider-header">
-              <span class="sim-label">การกินไฟของแอร์ขณะจอดนอน (AC Power)</span>
+          <!-- 3-Tier Climate Preset Pills -->
+          <div class="sim-control-section">
+            <div class="sim-control-header">
+              <span class="sim-label">❄️ อุณหภูมิ & แอร์ตอนนอน (Climate Mode)</span>
               <span id="valAcPower" class="sim-val-display">1.0 kW/ชม.</span>
             </div>
-            <input type="range" id="simAcPower" class="custom-range" min="0.6" max="2.0" step="0.1" value="1.0">
-            <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem;">
-              ที่อุณหภูมิ 24-25°C แอร์จะกินไฟประมาณ 0.8 - 1.2 kW ต่อชั่วโมง
+            <div id="climatePresetGroup" class="climate-preset-group" role="group" aria-label="เลือกระดับความเย็นแอร์">
+              <button type="button" class="climate-pill" data-climate="eco" data-power="0.8" aria-pressed="false">
+                <span class="pill-icon">☀️</span>
+                <span class="pill-text">ธรรมชาติ 28°C</span>
+                <span class="pill-spec">0.8 kW</span>
+              </button>
+              <button type="button" class="climate-pill active" data-climate="normal" data-power="1.0" aria-pressed="true">
+                <span class="pill-icon">🍃</span>
+                <span class="pill-text">สบาย 24-25°C</span>
+                <span class="pill-spec">1.0 kW</span>
+              </button>
+              <button type="button" class="climate-pill" data-climate="chill" data-power="1.4" aria-pressed="false">
+                <span class="pill-icon">❄️</span>
+                <span class="pill-text">เย็นฉ่ำ 20°C</span>
+                <span class="pill-spec">1.4 kW</span>
+              </button>
+            </div>
+            <!-- Custom AC Power Slider -->
+            <div class="custom-ac-slider-wrap">
+              <input type="range" id="simAcPower" class="custom-range" min="0.6" max="2.0" step="0.1" value="1.0" aria-label="การกินไฟของแอร์">
+              <div class="slider-scale-labels">
+                <span>0.6 kW (Eco)</span>
+                <span>1.0 kW (Normal)</span>
+                <span>2.0 kW (Max)</span>
+              </div>
             </div>
           </div>
+
+          <!-- Sleep Duration Quick Chips & Slider -->
+          <div class="sim-control-section">
+            <div class="sim-control-header">
+              <span class="sim-label">🌙 ชั่วโมงนอนเปิดแอร์ในรถ (Sleep Hours)</span>
+              <span id="valSleepHours" class="sim-val-display">8 ชม.</span>
+            </div>
+            <div id="sleepChipsGroup" class="sleep-chips-group" role="group" aria-label="เลือกชั่วโมงนอน">
+              <button type="button" class="chip-btn" data-hours="6" aria-pressed="false">6 ชม.</button>
+              <button type="button" class="chip-btn active" data-hours="8" aria-pressed="true">8 ชม.</button>
+              <button type="button" class="chip-btn" data-hours="10" aria-pressed="false">10 ชม.</button>
+            </div>
+            <input type="range" id="simSleepHours" class="custom-range" min="4" max="12" step="1" value="8" aria-label="ชั่วโมงนอนเปิดแอร์">
+            <div class="slider-scale-labels">
+              <span>4 ชม. (งีบสั้น)</span>
+              <span>8 ชม. (มาตรฐาน)</span>
+              <span>12 ชม. (พักผ่อนยาว)</span>
+            </div>
+          </div>
+
+          <!-- 1-Tap V2L Load Toggle -->
+          <div class="v2l-toggle-card">
+            <label class="v2l-toggle-label" for="simV2lToggle">
+              <div class="v2l-info-group">
+                <div class="v2l-title-row">
+                  <i data-lucide="zap" style="width: 18px; height: 18px; color: var(--accent-amber);"></i>
+                  <strong>⚡ ระบบ V2L ทำอาหาร / เครื่องใช้</strong>
+                  <span class="badge badge-amber">+2.0 kWh</span>
+                </div>
+                <p class="v2l-desc">คำนวณการใช้ไฟกาน้ำร้อน, หม้อต้มชาบู, หรือเครื่องใช้ไฟฟ้าช่วงหัวค่ำ</p>
+              </div>
+              <div class="v2l-switch-wrap">
+                <input type="checkbox" id="simV2lToggle" class="v2l-switch-checkbox" aria-label="เปิดใช้งานระบบ V2L">
+                <span class="v2l-switch-slider"></span>
+              </div>
+            </label>
+          </div>
+
         </div>
 
-        <!-- 2-Car Comparison Results -->
+        <!-- 2-Car Comparison Visual Results & Gauges -->
         <div>
-          <div class="two-car-grid" style="margin-bottom: 1rem;">
-            <!-- Car 1 Results -->
-            <div class="car-profile-card" style="border-top: 4px solid #10b981;">
+          <div class="two-car-grid">
+            <!-- Car 1 Visual Result Card -->
+            <div class="car-profile-card card-car1">
               <div class="car-profile-header">
-                <span class="car-title" style="color: #10b981;">🚗 รถคันที่ 1</span>
-                <span class="badge badge-green">ความจุหลัก</span>
+                <div>
+                  <h4 class="car-title text-car1">🚗 รถคันที่ 1</h4>
+                  <span id="c1ModelBadge" class="car-model-name">BYD Atto 3 (Extended)</span>
+                </div>
+                <span class="badge badge-green" id="c1CapBadge">60.5 kWh</span>
               </div>
-              <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem;">
-                <div style="display: flex; justify-content: space-between;">
-                  <span>ถึง Owl Yard เหลือ:</span>
-                  <strong id="c1ArrivalSoc" style="color: #10b981;">83%</strong>
+
+              <!-- Visual Battery Cylinder Meter -->
+              <div class="battery-meter-container">
+                <div class="battery-cylinder" id="c1BatteryGauge" aria-label="มาตรวัดแบตเตอรี่รถคันที่ 1">
+                  <div class="battery-cap-top"></div>
+                  <div class="battery-casing">
+                    <div class="battery-fluid-fill" id="c1BatteryFill" style="height: 70%;"></div>
+                    <div class="battery-tick tick-75"></div>
+                    <div class="battery-tick tick-50"></div>
+                    <div class="battery-tick tick-25"></div>
+                    <div class="battery-soc-label" id="c1SocOverlay">70%</div>
+                  </div>
                 </div>
-                <div style="display: flex; justify-content: space-between;">
-                  <span>ใช้ไฟแอร์ทั้งคืน:</span>
-                  <strong id="c1SleepEnergy" style="color: #f59e0b;">8.0 kWh (13%)</strong>
+
+                <div class="battery-summary-metrics">
+                  <div class="metric-main">
+                    <span class="metric-label">ตื่นเช้าเหลือแบตฯ:</span>
+                    <strong id="c1MorningSoc" class="stat-highlight text-car1">70%</strong>
+                  </div>
+                  <div class="metric-sub">
+                    <span class="metric-label">วิ่งต่อได้อีก:</span>
+                    <strong id="c1MorningRange" class="stat-range">~262 กม.</strong>
+                  </div>
+                  <!-- Safety Ratio Badge -->
+                  <div class="safety-margin-wrap">
+                    <div id="c1SafetyBadge" class="safety-badge badge-green">🟢 ปลอดภัยมาก (4.0x)</div>
+                    <span id="c1SafetyRatio" class="safety-subtext">4.0x vs ปตท.เลี่ยงเมืองอุทัยฯ (65 กม.)</span>
+                  </div>
                 </div>
-                <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 0.35rem;">
-                  <span>ตื่นเช้าเหลือแบตฯ:</span>
-                  <strong id="c1MorningSoc" style="font-size: 1.1rem; color: #10b981;">70%</strong>
+              </div>
+
+              <!-- Energy Breakdown Timeline -->
+              <div class="energy-timeline">
+                <div class="timeline-step">
+                  <span class="step-icon">⚡</span>
+                  <div class="step-content">
+                    <span class="step-title">ชาร์จเต็มด่านช้าง (SoC 95%)</span>
+                    <span class="step-val" id="c1StartVal">57.5 kWh</span>
+                  </div>
                 </div>
-                <div style="display: flex; justify-content: space-between;">
-                  <span>วิ่งต่อได้อีก:</span>
-                  <strong id="c1MorningRange">~262 กม.</strong>
+                <div class="timeline-step">
+                  <span class="step-icon">🚗</span>
+                  <div class="step-content">
+                    <span class="step-title">ขับเข้าแคมป์ Owl Yard (45 กม.)</span>
+                    <span class="step-val text-muted" id="c1DriveVal">-7.2 kWh (-11.9%)</span>
+                  </div>
+                </div>
+                <div class="timeline-step">
+                  <span class="step-icon">🏕️</span>
+                  <div class="step-content">
+                    <span class="step-title">ถึงแคมป์ Owl Yard เหลือ</span>
+                    <strong id="c1ArrivalSoc" class="text-car1">83%</strong>
+                    <span class="step-kwh" id="c1ArrivalKwh">(50.3 kWh)</span>
+                  </div>
+                </div>
+                <div class="timeline-step">
+                  <span class="step-icon">⛺</span>
+                  <div class="step-content">
+                    <span class="step-title">เปิดแอร์นอน & V2L</span>
+                    <strong id="c1SleepEnergy" class="text-amber">8.0 kWh (13%)</strong>
+                  </div>
+                </div>
+                <div class="timeline-step step-final">
+                  <span class="step-icon">☀️</span>
+                  <div class="step-content">
+                    <span class="step-title">เช้าวันใหม่พร้อมลุย</span>
+                    <strong class="text-car1" id="c1MorningVal">70% (42.3 kWh)</strong>
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- Car 2 Results -->
-            <div class="car-profile-card" style="border-top: 4px solid #3b82f6;">
+            <!-- Car 2 Visual Result Card -->
+            <div class="car-profile-card card-car2">
               <div class="car-profile-header">
-                <span class="car-title" style="color: #3b82f6;">🚙 รถคันที่ 2</span>
-                <span class="badge badge-blue">ความจุรอง</span>
+                <div>
+                  <h4 class="car-title text-car2">🚙 รถคันที่ 2</h4>
+                  <span id="c2ModelBadge" class="car-model-name">BYD Dolphin (Standard)</span>
+                </div>
+                <span class="badge badge-blue" id="c2CapBadge">44.9 kWh</span>
               </div>
-              <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem;">
-                <div style="display: flex; justify-content: space-between;">
-                  <span>ถึง Owl Yard เหลือ:</span>
-                  <strong id="c2ArrivalSoc" style="color: #3b82f6;">81%</strong>
+
+              <!-- Visual Battery Cylinder Meter -->
+              <div class="battery-meter-container">
+                <div class="battery-cylinder cylinder-car2" id="c2BatteryGauge" aria-label="มาตรวัดแบตเตอรี่รถคันที่ 2">
+                  <div class="battery-cap-top"></div>
+                  <div class="battery-casing">
+                    <div class="battery-fluid-fill fill-car2" id="c2BatteryFill" style="height: 63%;"></div>
+                    <div class="battery-tick tick-75"></div>
+                    <div class="battery-tick tick-50"></div>
+                    <div class="battery-tick tick-25"></div>
+                    <div class="battery-soc-label" id="c2SocOverlay">63%</div>
+                  </div>
                 </div>
-                <div style="display: flex; justify-content: space-between;">
-                  <span>ใช้ไฟแอร์ทั้งคืน:</span>
-                  <strong id="c2SleepEnergy" style="color: #f59e0b;">8.0 kWh (16%)</strong>
+
+                <div class="battery-summary-metrics">
+                  <div class="metric-main">
+                    <span class="metric-label">ตื่นเช้าเหลือแบตฯ:</span>
+                    <strong id="c2MorningSoc" class="stat-highlight text-car2">63%</strong>
+                  </div>
+                  <div class="metric-sub">
+                    <span class="metric-label">วิ่งต่อได้อีก:</span>
+                    <strong id="c2MorningRange" class="stat-range">~195 กม.</strong>
+                  </div>
+                  <!-- Safety Ratio Badge -->
+                  <div class="safety-margin-wrap">
+                    <div id="c2SafetyBadge" class="safety-badge badge-green">🟢 ปลอดภัยมาก (3.0x)</div>
+                    <span id="c2SafetyRatio" class="safety-subtext">3.0x vs ปตท.เลี่ยงเมืองอุทัยฯ (65 กม.)</span>
+                  </div>
                 </div>
-                <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 0.35rem;">
-                  <span>ตื่นเช้าเหลือแบตฯ:</span>
-                  <strong id="c2MorningSoc" style="font-size: 1.1rem; color: #3b82f6;">65%</strong>
+              </div>
+
+              <!-- Energy Breakdown Timeline -->
+              <div class="energy-timeline">
+                <div class="timeline-step">
+                  <span class="step-icon">⚡</span>
+                  <div class="step-content">
+                    <span class="step-title">ชาร์จเต็มด่านช้าง (SoC 95%)</span>
+                    <span class="step-val" id="c2StartVal">42.7 kWh</span>
+                  </div>
                 </div>
-                <div style="display: flex; justify-content: space-between;">
-                  <span>วิ่งต่อได้อีก:</span>
-                  <strong id="c2MorningRange">~203 กม.</strong>
+                <div class="timeline-step">
+                  <span class="step-icon">🚗</span>
+                  <div class="step-content">
+                    <span class="step-title">ขับเข้าแคมป์ Owl Yard (45 กม.)</span>
+                    <span class="step-val text-muted" id="c2DriveVal">-6.3 kWh (-14.0%)</span>
+                  </div>
+                </div>
+                <div class="timeline-step">
+                  <span class="step-icon">🏕️</span>
+                  <div class="step-content">
+                    <span class="step-title">ถึงแคมป์ Owl Yard เหลือ</span>
+                    <strong id="c2ArrivalSoc" class="text-car2">81%</strong>
+                    <span class="step-kwh" id="c2ArrivalKwh">(36.4 kWh)</span>
+                  </div>
+                </div>
+                <div class="timeline-step">
+                  <span class="step-icon">⛺</span>
+                  <div class="step-content">
+                    <span class="step-title">เปิดแอร์นอน & V2L</span>
+                    <strong id="c2SleepEnergy" class="text-amber">8.0 kWh (18%)</strong>
+                  </div>
+                </div>
+                <div class="timeline-step step-final">
+                  <span class="step-icon">☀️</span>
+                  <div class="step-content">
+                    <span class="step-title">เช้าวันใหม่พร้อมลุย</span>
+                    <strong class="text-car2" id="c2MorningVal">63% (28.4 kWh)</strong>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
-          <!-- Convoy Advice Text -->
-          <div class="sim-panel">
-            <div id="convoyAdviceText" style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6;">
+          <!-- Convoy Advice & Safety Assessment -->
+          <div class="sim-panel convoy-intelligence-card">
+            <div class="convoy-intel-header">
+              <i data-lucide="shield-check" style="width: 22px; height: 22px; color: var(--primary);"></i>
+              <h3 style="font-size: 1.05rem; font-weight: 800; color: var(--text-primary); margin: 0;">สรุปความปลอดภัย & แผนการเดินทางขบวน</h3>
+            </div>
+            <div id="convoyAdviceText" class="convoy-advice-text">
               <!-- Injected dynamically -->
             </div>
           </div>
+
+          <!-- Quick Brand Camp Mode Guide Reference -->
+          <div class="sim-panel" style="margin-top: 1rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+              <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin: 0; display: flex; align-items: center; gap: 0.4rem;">
+                <i data-lucide="book-open" style="width: 16px; height: 16px; color: var(--primary);"></i>
+                <span>คู่มือ Camp Mode & สายด่วนฉุกเฉิน</span>
+              </h4>
+              <button type="button" class="btn-text-action" onclick="openCampSosDrawer()">
+                <span>ดูทั้งหมด</span>
+                <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+              </button>
+            </div>
+            <p style="font-size: 0.825rem; color: var(--text-secondary); margin-bottom: 0.75rem; line-height: 1.45;">
+              ดูวิธีตั้งค่าเปิดแอร์ค้างคืน, ปิดไฟหน้า DRL, และเบอร์โทรฉุกเฉินของเครือข่ายสถานีชาร์จ (NEXMOEV, EV Station PluZ, PEA VOLTA, EleXA)
+            </p>
+            <button type="button" class="btn-nav-full btn-secondary" onclick="openCampSosDrawer()" style="min-height: 44px;">
+              <i data-lucide="tent-tree" style="width: 16px; height: 16px;"></i>
+              <span>เปิดคู่มือ Camp Mode & เบอร์โทร SOS</span>
+            </button>
+          </div>
+
         </div>
       </div>
     </section>
 
   </main>
 
+  <!-- ==================================================================== -->
+  <!-- QUICK ACTION DRAWER: CAMP MODE GUIDE & SOS HOTLINES -->
+  <!-- ==================================================================== -->
+  <div id="drawerCampSos" class="drawer-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="drawerTitle">
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    <div class="drawer-sheet" tabindex="-1">
+      <div class="drawer-header">
+        <div class="drawer-header-title">
+          <i data-lucide="tent-tree" style="color: var(--primary); width: 22px; height: 22px;"></i>
+          <h3 id="drawerTitle">คู่มือแคมป์ & สายด่วนฉุกเฉิน</h3>
+        </div>
+        <button id="btnCloseCampGuide" class="drawer-close-btn" aria-label="ปิดหน้าต่าง">
+          <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+        </button>
+      </div>
+
+      <div class="drawer-body">
+        <!-- Brand Camp Mode Accordion / Cards -->
+        <div class="drawer-section">
+          <h4 class="drawer-section-title">
+            <i data-lucide="car" style="width: 18px; height: 18px; color: var(--primary);"></i>
+            <span>วิธีตั้งค่า Camp Mode แยกตามยี่ห้อรถ</span>
+          </h4>
+          <div id="brandCampGuideContainer" class="brand-camp-container">
+            <!-- Injected dynamically from data.js -->
+          </div>
+        </div>
+
+        <!-- Pro Camping Tips -->
+        <div class="drawer-section">
+          <h4 class="drawer-section-title">
+            <i data-lucide="sparkles" style="width: 18px; height: 18px; color: var(--accent-amber);"></i>
+            <span>เทคนิคและข้อแนะนำการนอนในรถ (Pro Tips)</span>
+          </h4>
+          <div id="proTipsContainer" class="pro-tips-container">
+            <!-- Injected dynamically from data.js -->
+          </div>
+        </div>
+
+        <!-- 1-Tap Emergency Hotlines -->
+        <div class="drawer-section">
+          <h4 class="drawer-section-title">
+            <i data-lucide="phone-call" style="width: 18px; height: 18px; color: var(--accent-red);"></i>
+            <span>เบอร์โทรฉุกเฉิน & ผู้ให้บริการสถานีชาร์จ (1-Tap Call)</span>
+          </h4>
+          <div id="emergencyContactsContainer" class="emergency-contacts-grid">
+            <!-- Injected dynamically from data.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Mobile Bottom Navigation Bar (Clean 3 Items Only) -->
-  <nav class="mobile-nav-bar" style="justify-content: space-around;">
-    <button class="mobile-nav-item active" data-tab="tab-map">
+  <nav class="mobile-nav-bar" role="tablist" aria-label="Mobile Navigation">
+    <button class="mobile-nav-item active" id="mobileNavTrip" data-tab="tab-map" data-view="view-trip" role="tab" aria-selected="true" aria-controls="tab-map">
       <i data-lucide="map"></i>
-      <span>แผนที่ทิศทาง</span>
+      <span>แผนที่ & จุดแวะ</span>
     </button>
-    <button class="mobile-nav-item" data-tab="tab-charge-chill">
-      <i data-lucide="utensils"></i>
-      <span>ชาร์จ&กิน</span>
-    </button>
-    <button class="mobile-nav-item" data-tab="tab-simulator">
+    <button class="mobile-nav-item" id="mobileNavSim" data-tab="tab-simulator" data-view="view-simulator" role="tab" aria-selected="false" aria-controls="tab-simulator">
       <i data-lucide="battery-charging"></i>
-      <span>คำนวณ (2คัน)</span>
+      <span>จำลองแบต 2 คัน</span>
+    </button>
+    <button class="mobile-nav-item" id="mobileNavCampGuide" aria-haspopup="dialog" aria-expanded="false">
+      <i data-lucide="tent-tree"></i>
+      <span>คู่มือ & SOS</span>
     </button>
   </nav>
 
