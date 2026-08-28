@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>EV Camp Trip: แผนที่ทิศทาง & จุดชาร์จกินข้าว บ้านไร่ - NEXMOEV</title>
+  <meta name="description" content="แผนที่ทิศทางเส้นทางขาไป-ขากลับ และจุดแวะชาร์จกินข้าวชิลๆ สำหรับทริปแคมป์ปิ้งรถยนต์ไฟฟ้า 2 คัน นนทบุรี - บ้านไร่ Owl Yard - NEXMOEV">
+  
+  <!-- Google Fonts: Prompt & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Leaflet CSS for Interactive Map -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- Top Header Navigation (Clean 3 Tabs) -->
+  <header class="header-wrapper">
+    <div class="container header-container">
+      <div class="logo-group">
+        <div class="logo-icon">
+          <i data-lucide="tent-tree" style="width: 22px; height: 22px;"></i>
+        </div>
+        <div class="logo-text">
+          <h1>EV Camp Trip Planner</h1>
+          <p>แผนที่ทิศทาง • แวะชาร์จ&กิน • Owl Yard บ้านไร่ • NEXMOEV</p>
+        </div>
+      </div>
+
+      <!-- Desktop Nav Tabs (3 Tabs Only) -->
+      <nav class="nav-desktop">
+        <button class="nav-btn active" data-tab="tab-map">
+          <i data-lucide="map" style="width: 16px; height: 16px;"></i>
+          <span>แผนที่ทิศทางเส้นทาง</span>
+        </button>
+        <button class="nav-btn" data-tab="tab-charge-chill">
+          <i data-lucide="utensils" style="width: 16px; height: 16px;"></i>
+          <span>แวะชาร์จ & กินไหนดี?</span>
+        </button>
+        <button class="nav-btn" data-tab="tab-simulator">
+          <i data-lucide="battery-charging" style="width: 16px; height: 16px;"></i>
+          <span>คำนวณแบตฯ (2 คัน)</span>
+        </button>
+      </nav>
+
+      <!-- Actions (Theme Switcher) -->
+      <div class="header-actions">
+        <button id="themeToggleBtn" class="theme-toggle-btn" title="เปลี่ยนธีม มืด/สว่าง">
+          <span id="themeIcon">
+            <i data-lucide="moon" style="width: 20px; height: 20px;"></i>
+          </span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="container" style="flex: 1; padding-top: 1rem;">
+
+    <!-- Hero Card Overview -->
+    <section class="hero-section">
+      <div class="hero-card">
+        <div class="hero-badges">
+          <span class="badge badge-green">⏰ ออก 09:00 น. ขับสบายๆ ชิลๆ</span>
+          <span class="badge badge-amber">⚡ ชาร์จเต็มช่วงด่านช้างก่อนเข้าแคมป์</span>
+          <span class="badge badge-purple">⭐ ไฮไลท์ขากลับ: NEXMOEV 12 หัวชาร์จ + นวดฟรี</span>
+          <span class="badge badge-blue">🚗 ขบวน 2 คัน (คำนวณแยกคันได้)</span>
+        </div>
+        
+        <h2 class="hero-title">แผนที่ทิศทาง & จุดแวะชาร์จกินข้าว ทริปแคมป์ปิ้งบ้านไร่</h2>
+        <p class="hero-desc">
+          เน้นดูง่าย ใช้งานสะดวกบนมือถือ: <strong>ดูทิศทางเส้นทางบนแผนที่ (🟢 ขาไป vs 🟡 ขากลับ)</strong>, ดูคำแนะนำ <strong>"แวะชาร์จจุดไหนมีร้านข้าว/กาแฟในตัว"</strong> และคำนวณไฟเปิดแอร์นอนในรถสำหรับ 2 คัน ไร้กังวลเรื่องแบตเตอรี่ครับ
+        </p>
+
+        <!-- Quick Action Buttons -->
+        <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem;">
+          <button class="btn-nav-full" data-goto-tab="tab-map" style="width: auto; padding: 0.55rem 1.2rem;">
+            <i data-lucide="map" style="width: 16px; height: 16px;"></i>
+            <span>ดูแผนที่ทิศทาง</span>
+          </button>
+          <button class="btn-nav-full" data-goto-tab="tab-charge-chill" style="width: auto; padding: 0.55rem 1.2rem; background: var(--bg-card-subtle); color: var(--text-primary); border: 1px solid var(--border-color);">
+            <i data-lucide="utensils" style="width: 16px; height: 16px;"></i>
+            <span>ดูร้านอาหาร & จุดชาร์จ</span>
+          </button>
+          <button class="btn-nav-full" data-goto-tab="tab-simulator" style="width: auto; padding: 0.55rem 1.2rem; background: #3b82f6;">
+            <i data-lucide="battery-charging" style="width: 16px; height: 16px;"></i>
+            <span>คำนวณไฟนอนในรถ (2 คัน)</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- TAB 1: DIRECTIONAL MAP (FIRST & DEFAULT TAB) -->
+    <!-- ==================================================================== -->
+    <section id="tab-map" class="tab-content active">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i data-lucide="map-pin" style="color: var(--primary);"></i>
+          <span>แผนที่ทิศทางเส้นทาง (🟢 ขาไป ➔ 🟡 ขากลับ)</span>
+        </h2>
+        <p class="section-desc">คลิกที่หมุดหรือรายชื่อสถานที่ด้านซ้ายเพื่อดูรายละเอียด และกดเปิด Google Maps นำทางได้ทันที</p>
+      </div>
+
+      <!-- Direction Flow Legend Box -->
+      <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 1rem 1.25rem; margin-bottom: 1.25rem; display: grid; grid-template-columns: 1fr; gap: 0.75rem;">
+        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem;">
+          <span style="display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: #10b981; flex-shrink: 0;"></span>
+          <div>
+            <strong>🟢 เส้นทางขาไป:</strong> ออก 09:00 น. นนทบุรี ➔ สุพรรณบุรี (สามชุก) ➔ PTT ด่านช้าง (★ ชาร์จเต็ม 90-95%) ➔ Owl Yard บ้านไร่ (~220 กม.)
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; border-top: 1px solid var(--border-color); padding-top: 0.5rem;">
+          <span style="display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: #f59e0b; flex-shrink: 0;"></span>
+          <div>
+            <strong>🟡 เส้นทางขากลับ:</strong> บ้านไร่ ➔ หุบป่าตาด ➔ วัดท่าซุง ➔ ⭐ NEXMOEV พยุหะคีรี (12 ตู้ 120 kW + นวดแอร์ฟรี) ➔ ชัยนาท ➔ สายเอเชียกลับบ้าน (~325 กม.)
+          </div>
+        </div>
+      </div>
+
+      <div class="map-layout">
+        <!-- Map Sidebar -->
+        <div class="map-sidebar">
+          <div>
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase;">
+              กรองตามหมวดหมู่
+            </div>
+            <div id="mapFilterGroup" class="filter-group">
+              <!-- Injected dynamically -->
+            </div>
+          </div>
+
+          <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">
+            สถานที่และจุดชาร์จทั้งหมด
+          </div>
+
+          <div id="mapPlacesList" class="map-places-list">
+            <!-- Injected dynamically -->
+          </div>
+        </div>
+
+        <!-- Map Leaflet Container -->
+        <div class="map-container-wrapper">
+          <div id="map"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- TAB 2: CHARGE & CHILL HUBS (2ND TAB SUGGESTION) -->
+    <!-- ==================================================================== -->
+    <section id="tab-charge-chill" class="tab-content">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i data-lucide="utensils" style="color: var(--primary);"></i>
+          <span>แวะร้านที่มีที่ชาร์จตรงไหนได้บ้าง? (Charge & Chill Hubs)</span>
+        </h2>
+        <p class="section-desc">รวมพิกัดสถานีชาร์จ DC Fast Charger พร้อมข้อมูลร้านอาหาร กาแฟ ของกิน และกิจกรรมระหว่างรอชาร์จไฟ</p>
+      </div>
+
+      <div id="chargeAndChillContainer">
+        <!-- Injected dynamically from data.js -->
+      </div>
+    </section>
+
+    <!-- ==================================================================== -->
+    <!-- TAB 3: EV BATTERY & 2-CAR COMPARISON SIMULATOR -->
+    <!-- ==================================================================== -->
+    <section id="tab-simulator" class="tab-content">
+      <div class="section-header">
+        <h2 class="section-title">
+          <i data-lucide="battery-charging" style="color: #10b981;"></i>
+          <span>เครื่องคำนวณแบตเตอรี่ & เปรียบเทียบ 2 คัน (2-Car EV Simulator)</span>
+        </h2>
+        <p class="section-desc">ปรับความจุแบตเตอรี่ของรถคันที่ 1 และคันที่ 2 เพื่อดูการใช้พลังงานแอร์ตอนนอนและระยะทางที่เหลือของทั้งสองคัน</p>
+      </div>
+
+      <div class="simulator-layout">
+        <!-- Simulator Controls -->
+        <div class="sim-panel">
+          <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 0.5rem;">
+            <i data-lucide="sliders" style="color: var(--primary); width: 20px; height: 20px;"></i>
+            <span>ตั้งค่าความจุแบตเตอรี่รถทั้ง 2 คัน</span>
+          </h3>
+
+          <!-- Car 1 Battery Capacity -->
+          <div class="sim-slider-group" style="background: rgba(16, 185, 129, 0.05); padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid rgba(16, 185, 129, 0.2);">
+            <div class="sim-slider-header">
+              <span class="sim-label" style="color: #10b981;">🚗 รถคันที่ 1 (Car 1 Battery)</span>
+              <span id="valCar1Cap" class="sim-val-display">60 kWh</span>
+            </div>
+            <input type="range" id="simCar1Cap" class="custom-range" min="35" max="110" step="1" value="60">
+            <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem;">
+              <span>35 kWh (City)</span>
+              <span>60 kWh (Standard)</span>
+              <span>100+ kWh</span>
+            </div>
+          </div>
+
+          <!-- Car 2 Battery Capacity -->
+          <div class="sim-slider-group" style="background: rgba(59, 130, 246, 0.05); padding: 0.85rem; border-radius: var(--radius-md); border: 1px solid rgba(59, 130, 246, 0.2); margin-top: 1rem;">
+            <div class="sim-slider-header">
+              <span class="sim-label" style="color: #3b82f6;">🚙 รถคันที่ 2 (Car 2 Battery)</span>
+              <span id="valCar2Cap" class="sim-val-display" style="color: #3b82f6;">50 kWh</span>
+            </div>
+            <input type="range" id="simCar2Cap" class="custom-range" min="35" max="110" step="1" value="50" style="accent-color: #3b82f6;">
+            <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem;">
+              <span>35 kWh (City)</span>
+              <span>50 kWh (Standard)</span>
+              <span>100+ kWh</span>
+            </div>
+          </div>
+
+          <!-- Camping Sleep Hours -->
+          <div class="sim-slider-group" style="margin-top: 1.25rem;">
+            <div class="sim-slider-header">
+              <span class="sim-label">จำนวนชั่วโมงนอนเปิดแอร์ในรถ (Sleep Hours)</span>
+              <span id="valSleepHours" class="sim-val-display">8 ชม.</span>
+            </div>
+            <input type="range" id="simSleepHours" class="custom-range" min="4" max="12" step="1" value="8">
+          </div>
+
+          <!-- AC Power Consumption -->
+          <div class="sim-slider-group">
+            <div class="sim-slider-header">
+              <span class="sim-label">การกินไฟของแอร์ขณะจอดนอน (AC Power)</span>
+              <span id="valAcPower" class="sim-val-display">1.0 kW/ชม.</span>
+            </div>
+            <input type="range" id="simAcPower" class="custom-range" min="0.6" max="2.0" step="0.1" value="1.0">
+            <div style="font-size: 0.7rem; color: var(--text-muted); margin-top: 0.2rem;">
+              ที่อุณหภูมิ 24-25°C แอร์จะกินไฟประมาณ 0.8 - 1.2 kW ต่อชั่วโมง
+            </div>
+          </div>
+        </div>
+
+        <!-- 2-Car Comparison Results -->
+        <div>
+          <div class="two-car-grid" style="margin-bottom: 1rem;">
+            <!-- Car 1 Results -->
+            <div class="car-profile-card" style="border-top: 4px solid #10b981;">
+              <div class="car-profile-header">
+                <span class="car-title" style="color: #10b981;">🚗 รถคันที่ 1</span>
+                <span class="badge badge-green">ความจุหลัก</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem;">
+                <div style="display: flex; justify-content: space-between;">
+                  <span>ถึง Owl Yard เหลือ:</span>
+                  <strong id="c1ArrivalSoc" style="color: #10b981;">83%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span>ใช้ไฟแอร์ทั้งคืน:</span>
+                  <strong id="c1SleepEnergy" style="color: #f59e0b;">8.0 kWh (13%)</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 0.35rem;">
+                  <span>ตื่นเช้าเหลือแบตฯ:</span>
+                  <strong id="c1MorningSoc" style="font-size: 1.1rem; color: #10b981;">70%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span>วิ่งต่อได้อีก:</span>
+                  <strong id="c1MorningRange">~262 กม.</strong>
+                </div>
+              </div>
+            </div>
+
+            <!-- Car 2 Results -->
+            <div class="car-profile-card" style="border-top: 4px solid #3b82f6;">
+              <div class="car-profile-header">
+                <span class="car-title" style="color: #3b82f6;">🚙 รถคันที่ 2</span>
+                <span class="badge badge-blue">ความจุรอง</span>
+              </div>
+              <div style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem;">
+                <div style="display: flex; justify-content: space-between;">
+                  <span>ถึง Owl Yard เหลือ:</span>
+                  <strong id="c2ArrivalSoc" style="color: #3b82f6;">81%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span>ใช้ไฟแอร์ทั้งคืน:</span>
+                  <strong id="c2SleepEnergy" style="color: #f59e0b;">8.0 kWh (16%)</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between; border-top: 1px solid var(--border-color); padding-top: 0.35rem;">
+                  <span>ตื่นเช้าเหลือแบตฯ:</span>
+                  <strong id="c2MorningSoc" style="font-size: 1.1rem; color: #3b82f6;">65%</strong>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                  <span>วิ่งต่อได้อีก:</span>
+                  <strong id="c2MorningRange">~203 กม.</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Convoy Advice Text -->
+          <div class="sim-panel">
+            <div id="convoyAdviceText" style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6;">
+              <!-- Injected dynamically -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Mobile Bottom Navigation Bar (Clean 3 Items Only) -->
+  <nav class="mobile-nav-bar" style="justify-content: space-around;">
+    <button class="mobile-nav-item active" data-tab="tab-map">
+      <i data-lucide="map"></i>
+      <span>แผนที่ทิศทาง</span>
+    </button>
+    <button class="mobile-nav-item" data-tab="tab-charge-chill">
+      <i data-lucide="utensils"></i>
+      <span>ชาร์จ&กิน</span>
+    </button>
+    <button class="mobile-nav-item" data-tab="tab-simulator">
+      <i data-lucide="battery-charging"></i>
+      <span>คำนวณ (2คัน)</span>
+    </button>
+  </nav>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p style="margin-bottom: 0.5rem; font-weight: 600;">🌿 EV Camping Trip: Owl Yard Ban Rai - NEXMOEV - Uthai Thani Road Trip</p>
+      <p>ขับขี่สบายๆ แวะกินแวะชาร์จชิลๆ และเพลิดเพลินกับค่ำคืนในรถ EV ท่ามกลางธรรมชาติครับ ⚡🏕️</p>
+    </div>
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  
+  <!-- App & Data Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
