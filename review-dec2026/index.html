@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
+  <title>Car Camping 1 คืน (พ.ย.–ธ.ค. 2569) — เปรียบเทียบ &amp; ลิงก์ดูรูป</title>
+  <style>
+    :root {
+      --target-size: 24px;
+
+      /* Light tokens */
+      --bg-light: #f4f7f5;
+      --surface-light: #ffffff;
+      --surface-alt-light: #eef3ef;
+      --text-light: #122119;
+      --text-muted-light: #4a5e52;
+      --border-light: #d2ded6;
+      --accent-light: #047857;
+      --accent-text-light: #ffffff;
+      --accent-soft-light: #d1fae5;
+      --accent-soft-text-light: #065f46;
+      --warn-bg-light: #fef3c7;
+      --warn-border-light: #f59e0b;
+      --warn-text-light: #78350f;
+      --danger-bg-light: #fee2e2;
+      --danger-text-light: #991b1b;
+      --star-bg-light: #fef9c3;
+      --star-border-light: #eab308;
+      --star-text-light: #713f12;
+      --scroll-track-light: #e5ece7;
+      --scroll-thumb-light: #6b8073;
+
+      /* Dark tokens */
+      --bg-dark: #0c1410;
+      --surface-dark: #15211b;
+      --surface-alt-dark: #1d2d24;
+      --text-dark: #e6f2eb;
+      --text-muted-dark: #9cb5a6;
+      --border-dark: #2c4034;
+      --accent-dark: #34d399;
+      --accent-text-dark: #052e1e;
+      --accent-soft-dark: #064e3b;
+      --accent-soft-text-dark: #a7f3d0;
+      --warn-bg-dark: #3b2a0a;
+      --warn-border-dark: #d97706;
+      --warn-text-dark: #fde68a;
+      --danger-bg-dark: #451518;
+      --danger-text-dark: #fca5a5;
+      --star-bg-dark: #3a3008;
+      --star-border-dark: #ca8a04;
+      --star-text-dark: #fef08a;
+      --scroll-track-dark: #18251e;
+      --scroll-thumb-dark: #5e7a69;
+
+      /* Base light assignments */
+      --bg: var(--bg-light);
+      --surface: var(--surface-light);
+      --surface-alt: var(--surface-alt-light);
+      --text: var(--text-light);
+      --text-muted: var(--text-muted-light);
+      --border: var(--border-light);
+      --accent: var(--accent-light);
+      --accent-text: var(--accent-text-light);
+      --accent-soft: var(--accent-soft-light);
+      --accent-soft-text: var(--accent-soft-text-light);
+      --warn-bg: var(--warn-bg-light);
+      --warn-border: var(--warn-border-light);
+      --warn-text: var(--warn-text-light);
+      --danger-bg: var(--danger-bg-light);
+      --danger-text: var(--danger-text-light);
+      --star-bg: var(--star-bg-light);
+      --star-border: var(--star-border-light);
+      --star-text: var(--star-text-light);
+      --scrollbar-track: var(--scroll-track-light);
+      --scrollbar-thumb: var(--scroll-thumb-light);
+
+      color-scheme: light dark;
+      scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: var(--bg-dark);
+        --surface: var(--surface-dark);
+        --surface-alt: var(--surface-alt-dark);
+        --text: var(--text-dark);
+        --text-muted: var(--text-muted-dark);
+        --border: var(--border-dark);
+        --accent: var(--accent-dark);
+        --accent-text: var(--accent-text-dark);
+        --accent-soft: var(--accent-soft-dark);
+        --accent-soft-text: var(--accent-soft-text-dark);
+        --warn-bg: var(--warn-bg-dark);
+        --warn-border: var(--warn-border-dark);
+        --warn-text: var(--warn-text-dark);
+        --danger-bg: var(--danger-bg-dark);
+        --danger-text: var(--danger-text-dark);
+        --star-bg: var(--star-bg-dark);
+        --star-border: var(--star-border-dark);
+        --star-text: var(--star-text-dark);
+        --scrollbar-track: var(--scroll-track-dark);
+        --scrollbar-thumb: var(--scroll-thumb-dark);
+      }
+    }
+
+    @supports (color: light-dark(white, black)) {
+      :root {
+        --bg: light-dark(var(--bg-light), var(--bg-dark));
+        --surface: light-dark(var(--surface-light), var(--surface-dark));
+        --surface-alt: light-dark(var(--surface-alt-light), var(--surface-alt-dark));
+        --text: light-dark(var(--text-light), var(--text-dark));
+        --text-muted: light-dark(var(--text-muted-light), var(--text-muted-dark));
+        --border: light-dark(var(--border-light), var(--border-dark));
+        --accent: light-dark(var(--accent-light), var(--accent-dark));
+        --accent-text: light-dark(var(--accent-text-light), var(--accent-text-dark));
+        --accent-soft: light-dark(var(--accent-soft-light), var(--accent-soft-dark));
+        --accent-soft-text: light-dark(var(--accent-soft-text-light), var(--accent-soft-text-dark));
+        --warn-bg: light-dark(var(--warn-bg-light), var(--warn-bg-dark));
+        --warn-border: light-dark(var(--warn-border-light), var(--warn-border-dark));
+        --warn-text: light-dark(var(--warn-text-light), var(--warn-text-dark));
+        --danger-bg: light-dark(var(--danger-bg-light), var(--danger-bg-dark));
+        --danger-text: light-dark(var(--danger-text-light), var(--danger-text-dark));
+        --star-bg: light-dark(var(--star-bg-light), var(--star-bg-dark));
+        --star-border: light-dark(var(--star-border-light), var(--star-border-dark));
+        --star-text: light-dark(var(--star-text-light), var(--star-text-dark));
+        --scrollbar-track: light-dark(var(--scroll-track-light), var(--scroll-track-dark));
+        --scrollbar-thumb: light-dark(var(--scroll-thumb-light), var(--scroll-thumb-dark));
+      }
+    }
+
+    @media (pointer: coarse) {
+      :root {
+        --target-size: 44px;
+      }
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      accent-color: var(--accent);
+      scroll-padding-top: calc(1rem + env(safe-area-inset-top, 0px));
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", "Noto Sans Thai", "Sarabun", sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      overflow-wrap: break-word;
+      padding-block-start: max(0.75rem, env(safe-area-inset-top, 0px));
+      padding-block-end: max(2.5rem, env(safe-area-inset-bottom, 0px));
+      padding-inline-start: max(0.75rem, env(safe-area-inset-left, 0px));
+      padding-inline-end: max(0.75rem, env(safe-area-inset-right, 0px));
+    }
+
+    h1, h2, h3 {
+      text-wrap: balance;
+      margin-block: 0 0.45rem;
+      line-height: 1.3;
+    }
+
+    p, li {
+      text-wrap: pretty;
+    }
+
+    :where(a, code) {
+      overflow-wrap: anywhere;
+    }
+
+    a {
+      color: var(--accent);
+    }
+
+    :where(button, select, textarea, input:not([type="checkbox"], [type="radio"]), [role="button"], nav a, label:has(input[type="checkbox"], input[type="radio"])) {
+      min-block-size: var(--target-size);
+      min-inline-size: var(--target-size);
+    }
+
+    :where([role="button"], nav a, label:has(input[type="checkbox"], input[type="radio"])) {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .container {
+      max-inline-size: 1200px;
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .hero {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.15rem 1.25rem;
+    }
+
+    .hero-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .alert-banner {
+      background: var(--warn-bg);
+      border: 1px solid var(--warn-border);
+      color: var(--warn-text);
+      border-radius: 12px;
+      padding: 0.8rem 1rem;
+      font-size: 0.92rem;
+    }
+
+    .alert-banner strong {
+      display: inline-block;
+      margin-inline-end: 0.25rem;
+    }
+
+    .drawers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+      gap: 0.75rem;
+    }
+
+    details.drawer {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.65rem 0.9rem;
+    }
+
+    details.drawer summary {
+      cursor: pointer;
+      font-weight: 650;
+      min-block-size: var(--target-size);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      list-style-position: inside;
+    }
+
+    details.drawer .drawer-body {
+      margin-block-start: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--text);
+      border-top: 1px solid var(--border);
+      padding-block-start: 0.6rem;
+    }
+
+    details.drawer ul {
+      margin: 0.35rem 0;
+      padding-inline-start: 1.2rem;
+    }
+
+    details.drawer li + li {
+      margin-block-start: 0.35rem;
+    }
+
+    .controls-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 0.9rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    :where(.toolbar > :not(button, input, select, textarea, a, [role="button"], label)) {
+      min-inline-size: 0;
+    }
+
+    .chip-btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: var(--surface-alt);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 0.35rem 0.85rem;
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 550;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .chip-btn[aria-pressed="true"] {
+      background: var(--accent);
+      color: var(--accent-text);
+      border-color: var(--accent);
+    }
+
+    .chip-btn.star-filter[aria-pressed="true"] {
+      background: var(--star-bg);
+      color: var(--star-text);
+      border-color: var(--star-border);
+    }
+
+    .search-input, .sort-select, .note-input {
+      font: inherit;
+      font-size: 0.92rem;
+      color: var(--text);
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.4rem 0.75rem;
+    }
+
+    .search-input {
+      flex: 1 1 220px;
+    }
+
+    .action-btn {
+      appearance: none;
+      border: 1px solid var(--border);
+      background: var(--surface-alt);
+      color: var(--text);
+      border-radius: 10px;
+      padding: 0.4rem 0.85rem;
+      font: inherit;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .action-btn.primary {
+      background: var(--accent);
+      color: var(--accent-text);
+      border-color: var(--accent);
+    }
+
+    .stats-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr));
+      gap: 0.9rem;
+    }
+
+    .camp-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 0.95rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .camp-card.is-starred {
+      border-color: var(--star-border);
+      box-shadow: 0 0 0 1px var(--star-border);
+    }
+
+    .camp-card.is-rejected {
+      opacity: 0.62;
+    }
+
+    .card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .card-loc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-block-start: 0.15rem;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .badge.open {
+      background: var(--accent-soft);
+      color: var(--accent-soft-text);
+      border-color: transparent;
+    }
+
+    .badge.warn {
+      background: var(--warn-bg);
+      color: var(--warn-text);
+      border-color: var(--warn-border);
+    }
+
+    .badge.danger {
+      background: var(--danger-bg);
+      color: var(--danger-text);
+      border-color: transparent;
+    }
+
+    .card-specs {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.32rem;
+      font-size: 0.89rem;
+    }
+
+    .link-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .link-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding: 0.3rem 0.65rem;
+      min-block-size: var(--target-size);
+      border-radius: 8px;
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.83rem;
+      font-weight: 600;
+    }
+
+    .link-pill:hover {
+      border-color: var(--accent);
+    }
+
+    .card-actions {
+      margin-block-start: auto;
+      padding-block-start: 0.55rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .action-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .star-btn[aria-pressed="true"] {
+      background: var(--star-bg);
+      color: var(--star-text);
+      border-color: var(--star-border);
+    }
+
+    .reject-btn[aria-pressed="true"] {
+      background: var(--danger-bg);
+      color: var(--danger-text);
+      border-color: var(--danger-text);
+    }
+
+    .note-input {
+      width: 100%;
+      font-size: 0.85rem;
+    }
+
+    /* Responsive Table (modern-web-guidance: responsive-table) */
+    .table-wrapper {
+      overflow: auto;
+      max-inline-size: 100%;
+      max-block-size: min(75vh, 720px);
+      container-type: inline-size;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
+    }
+
+    @supports not (scrollbar-color: auto) {
+      .table-wrapper {
+        scrollbar-width: auto;
+      }
+      .table-wrapper::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+      }
+      .table-wrapper::-webkit-scrollbar-thumb {
+        background: var(--scrollbar-thumb);
+        border-radius: 6px;
+      }
+      .table-wrapper::-webkit-scrollbar-track {
+        background: var(--scrollbar-track);
+      }
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 0.88rem;
+      --label-2: "โซน / ระยะขับ";
+      --label-3: "สถานะล่าสุด";
+      --label-4: "Car Camp / นอนในรถ";
+      --label-5: "กิจกรรมเด็ก 7 ขวบ";
+      --label-6: "ราคา & ติดต่อ";
+      --label-7: "ดูรูป / รีวิว / แผนที่";
+    }
+
+    caption {
+      text-align: start;
+      padding: 0.7rem 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      background: var(--surface-alt);
+      border-bottom: 1px solid var(--border);
+    }
+
+    thead {
+      position: sticky;
+      inset-block-start: 0;
+      z-index: 2;
+      background: var(--surface-alt);
+    }
+
+    th, td {
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      border-inline-end: 1px solid var(--border);
+      vertical-align: top;
+      text-align: start;
+    }
+
+    thead th {
+      font-weight: 700;
+      white-space: nowrap;
+      background: var(--surface-alt);
+    }
+
+    tbody th {
+      position: sticky;
+      inset-inline-start: 0;
+      z-index: 1;
+      background: var(--surface);
+      font-weight: 700;
+      min-inline-size: 165px;
+    }
+
+    @container (width < 700px) {
+      table, thead, tbody, tr, th, td {
+        display: block;
+      }
+
+      thead {
+        display: none;
+      }
+
+      tr {
+        margin-block-end: 0.9rem;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--surface);
+      }
+
+      tbody th {
+        position: sticky;
+        inset-block-start: 0;
+        z-index: 2;
+        background: var(--surface-alt);
+        border-inline-end: none;
+        border-radius: 12px 12px 0 0;
+      }
+
+      td {
+        border-inline-end: none;
+      }
+
+      td:nth-child(2)::before { content: var(--label-2) ": "; font-weight: 700; color: var(--text-muted); }
+      td:nth-child(3)::before { content: var(--label-3) ": "; font-weight: 700; color: var(--text-muted); }
+      td:nth-child(4)::before { content: var(--label-4) ": "; font-weight: 700; color: var(--text-muted); }
+      td:nth-child(5)::before { content: var(--label-5) ": "; font-weight: 700; color: var(--text-muted); }
+      td:nth-child(6)::before { content: var(--label-6) ": "; font-weight: 700; color: var(--text-muted); }
+      td:nth-child(7)::before { content: var(--label-7) ": "; font-weight: 700; color: var(--text-muted); }
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .toast {
+      position: fixed;
+      inset-block-end: max(1rem, env(safe-area-inset-bottom, 0px));
+      inset-inline-start: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: var(--accent-text);
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
+      font-weight: 650;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      z-index: 50;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      padding-block: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <div class="hero-top">
+        <div>
+          <h1>🚐 Car Camping 1 คืน — เปรียบเทียบ &amp; ลิงก์ดูรูป</h1>
+          <p class="subtitle">เป้าหมาย: นอนในรถ (สัปดาห์หน้า 30 พ.ย.–6 ธ.ค. 2569) • เปลี่ยนทิศจากอุทัยฯ • พาเด็กชาย 7 ขวบเล่นน้ำ</p>
+        </div>
+        <div class="toolbar">
+          <button type="button" class="action-btn primary" id="copy-shortlist-btn">📋 คัดลอกที่ติดดาว (<span id="star-count">0</span>)</button>
+        </div>
+      </div>
+    </header>
+
+    <section class="alert-banner" aria-label="คำเตือนวันหยุดยาว">
+      <strong>⚠️ สำคัญ:</strong> วันเสาร์ที่ <strong>5 ธ.ค. 2569</strong> เป็นวันพ่อแห่งชาติ (หยุดยาว 5–7 ธ.ค.) ลานฮิตโซนสระบุรี/สวนผึ้งเต็มไวมาก ถ้าไปเสาร์–อาทิตย์ควรทักแชตถามว่างทันที หรือเลือกวันธรรมดา / ลานใหญ่ Walk-in ได้ (เช่น <em>เจ็ดคด</em> หรือ <em>Phupha โซนป่าสน</em>)
+    </section>
+
+    <section class="drawers" aria-label="ข้อมูลอ้างอิงสำคัญ">
+      <details class="drawer">
+        <summary>📌 ผลเช็กสถานะล่าสุด (ปิด / เปลี่ยนเพจ / เต็มไว)</summary>
+        <div class="drawer-body">
+          <ul>
+            <li><strong>มาดูธาร แคมป์ปิ้ง (ชะอม):</strong> เพจ FB เดิมเข้าไม่ได้แล้ว แต่ลานยังเปิดปกติ โทรตรง <a href="tel:0818992977">081-899-2977</a></li>
+            <li><strong>เสี่ยตึ๋งแคมป์ (สวนผึ้ง):</strong> เพจเดิม <em>ภูอิงธาร</em> ถูกปิด ย้ายมาเปิดต่อในชื่อ <em>เสี่ยตึ๋งแคมป์</em> ที่เดิมปกติ</li>
+            <li><strong>ณ วนา (ชะอม):</strong> เปิดจองเดือนต่อเดือนทุกวันที่ 16 วันเสาร์มักเต็มไวมาก</li>
+            <li><strong>The Lake Camp (ศรีสวัสดิ์):</strong> เพจประกาศช่วงนี้ทดลองเปิดแบบไม่เต็มรูปแบบ ปรับปรุงบางส่วน</li>
+            <li><strong>ไร่รวยริน (วังน้ำเขียว):</strong> ปิดบริการถาวรตั้งแต่ พ.ย. 2567</li>
+            <li><strong>P&amp;N Valley Camp (มวกเหล็ก):</strong> กฎลานนกยูงไม่รับรถ EV ชาร์จไฟในลาน (ปรับ 3,000 บ.)</li>
+            <li><strong>ไร่ลำภูทอง (มวกเหล็ก):</strong> ไม่มีลำธารเล่นน้ำ + ไม่มีสัญญาณมือถือทุกค่าย + มีทางลูกรัง</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="drawer">
+        <summary>🏞️ เจาะลึกลิงก์ที่คุณส่ง: บ้านไร่ริมธาร ลำแชะ</summary>
+        <div class="drawer-body">
+          <p>ลิงก์ <a href="https://www.facebook.com/share/p/1DNpFuXbjk/" target="_blank" rel="noopener">โพสต์กลุ่มจุดกางเต็นท์</a> มีเพจ <strong>บ้านไร่ริมธาร ลำแชะ</strong> มาตอบล่าสุด (อัปเดตภาพล่าสุด 21/11/69 และ TikTok <code>@lamchae27</code>):</p>
+          <ul>
+            <li><strong>จุดเด่นเด็ก 7 ขวบ:</strong> กิจกรรมแน่นสุด! เล่นน้ำ พายคายัค ซับบอร์ด เรือยาง แพเปียก ดูผีเสื้อ วิ่งว่าว ล่องเรือชมเขื่อน ฟรีอาหารเช้า (150 บ./คน)</li>
+            <li><strong>ข้อสังเกต 1 คืน:</strong> ขับจากนนทบุรี/กทม. ~300–320 กม. (4–4.5 ชม./เที่ยว) และตู้ EV DC Fast Charge ควรชาร์จตั้งแต่ อ.โชคชัย หรือตัวเมืองโคราช</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="drawer">
+        <summary>🔋 4 คำถามทักแชตก่อนโอน (สายนอนในรถ &amp; EV)</summary>
+        <div class="drawer-body">
+          <ul>
+            <li><strong>1. จอดรถนอนโซนไหน:</strong> ถามชัดว่าวันเข้าพัก (ธรรมดา vs หยุดยาว) นำรถจอดริมน้ำได้ไหม (บางลานเช่นสวนผึ้งให้จอดริมน้ำเฉพาะ จ–ศ)</li>
+            <li><strong>2. ถ้านอนเปิดแอร์ EV (Camp Mode):</strong> แจ้งลานตรงๆ ว่าใช้แบตรถเอง 100% ไม่เสียบชาร์จไฟลาน เพื่อไม่ให้ชนกฎห้ามชาร์จ EV ของบางลาน (ถ้าต่อไฟใช้แอร์เคลื่อนที่ เตรียมปลั๊กพ่วง 15–20 ม.)</li>
+            <li><strong>3. เด็ก 7 ขวบ &amp; น้ำ:</strong> เช็กเรทเด็ก 7 ขวบและระดับน้ำล่าสุดก่อนเดินทาง</li>
+            <li><strong>4. กันเพจปลอม:</strong> ตรวจชื่อบัญชีให้ตรงหน้าเพจหลักหรือขอวิดีโอคอลดูสถานที่จริง</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <section class="controls-panel" aria-label="ตัวกรองและค้นหา">
+      <div class="toolbar" role="group" aria-label="เลือกโซนจังหวัด">
+        <button type="button" class="chip-btn" data-region="all" aria-pressed="true">ทั้งหมด</button>
+        <button type="button" class="chip-btn" data-region="saraburi" aria-pressed="false">สระบุรี</button>
+        <button type="button" class="chip-btn" data-region="korat" aria-pressed="false">โคราช (ครบุรี/ปากช่อง/วังน้ำเขียว)</button>
+        <button type="button" class="chip-btn" data-region="ratchaburi" aria-pressed="false">ราชบุรี (สวนผึ้ง/บ้านคา)</button>
+        <button type="button" class="chip-btn" data-region="kanchanaburi" aria-pressed="false">กาญจนบุรี</button>
+      </div>
+
+      <div class="toolbar" role="group" aria-label="ตัวกรองคุณสมบัติ">
+        <button type="button" class="chip-btn" data-tag="water" aria-pressed="false">💧 เล่นน้ำได้</button>
+        <button type="button" class="chip-btn" data-tag="boat" aria-pressed="false">🚣 พายเรือ/คายัค</button>
+        <button type="button" class="chip-btn" data-tag="carcamp" aria-pressed="false">🚗 รับ Car Camp ชัด</button>
+        <button type="button" class="chip-btn" data-tag="kidfree" aria-pressed="false">👶 เด็ก 7 ขวบฟรี/≤100</button>
+        <button type="button" class="chip-btn" data-tag="walkin" aria-pressed="false">🏕️ ลานใหญ่/Walk-in ได้</button>
+        <button type="button" class="chip-btn star-filter" data-tag="starred" aria-pressed="false">⭐ เฉพาะที่ติดดาว</button>
+      </div>
+
+      <div class="toolbar">
+        <input type="search" id="search-input" class="search-input" placeholder="ค้นหาชื่อลาน, ชะอม, มวกเหล็ก, ชูชีพ, 7-Eleven..." aria-label="ค้นหาลานแคมป์ปิ้ง">
+        <select id="sort-select" class="sort-select" aria-label="เรียงลำดับ">
+          <option value="featured">เรียง: แนะนำ / ตัวเก็งก่อน</option>
+          <option value="drive">เรียง: ขับใกล้สุดก่อน</option>
+          <option value="price">เรียง: ราคาผู้ใหญ่ถูกสุดก่อน</option>
+        </select>
+        <button type="button" class="action-btn" id="view-toggle-btn" aria-pressed="false">📊 ดูแบบตาราง</button>
+      </div>
+
+      <div class="stats-bar">
+        <span id="result-count">กำลังโหลด...</span>
+        <span>หมายเหตุ: ข้อมูลดาว/โน้ตบันทึกไว้ในเบราว์เซอร์เครื่องนี้</span>
+      </div>
+    </section>
+
+    <section id="cards-view" class="card-grid" aria-label="รายการลาน Car Camping"></section>
+
+    <section id="table-view" class="hidden" aria-label="ตารางเปรียบเทียบลาน Car Camping">
+      <div tabindex="0" role="region" aria-labelledby="comparison-caption" class="table-wrapper">
+        <table>
+          <caption id="comparison-caption">ตารางเปรียบเทียบลาน Car Camping (เลื่อนซ้าย–ขวาบนจอเล็กได้ หรือสลับดูแบบการ์ด)</caption>
+          <thead>
+            <tr>
+              <th scope="col">ชื่อลาน &amp; สถานะ</th>
+              <th scope="col">โซน / ระยะขับ</th>
+              <th scope="col">สถานะล่าสุด</th>
+              <th scope="col">Car Camp / นอนในรถ</th>
+              <th scope="col">กิจกรรมเด็ก 7 ขวบ</th>
+              <th scope="col">ราคา &amp; ติดต่อ</th>
+              <th scope="col">ดูรูป / รีวิว / แผนที่</th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      อัปเดตข้อมูล: 24 พ.ย. 2569 • ใช้เพื่อเปรียบเทียบทริปส่วนตัว (กรุณาทักแชตหรือโทรเช็กล็อกว่างก่อนโอนมัดจำทุกครั้ง)
+    </footer>
+  </main>
+
+  <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+
+  <script>
+    const CAMPS = [
+      {
+        id: "phungam",
+        name: "ภูงาม น้ำใส แคมป์ปิ้ง",
+        batch: "ชุด 1 (Top Pick)",
+        region: "saraburi",
+        regionLabel: "ต.ชะอม อ.แก่งคอย สระบุรี",
+        distKm: 118,
+        driveTime: "1.5–2 ชม.",
+        priceNum: 150,
+        priceText: "ผู้ใหญ่ 150 บ. / เด็ก 7–12 ปี 100 บ. / แอร์ ≤9,000 BTU 250 บ.",
+        statusType: "open",
+        statusText: "เปิดปกติ (100% rec · รีวิว 1 วันที่แล้วชมบริการดีมาก)",
+        carCamp: "ลานกรวด/หญ้าใกล้ริมน้ำ มีจุดพ่วงไฟ ฟรี Wi-Fi สัญญาณ AIS เด่น",
+        kids: "น้ำใสไหลจากป่าต้นน้ำ มีโซนตื้น+ลึก มีเสื้อชูชีพให้ใช้ฟรี",
+        phone: "0852849211",
+        phoneDisplay: "085-284-9211",
+        tags: ["water", "carcamp", "kidfree"],
+        featuredRank: 1,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/profile.php?id=61574951787039&sk=photos" },
+          { label: "🗺️ Maps", url: "https://maps.app.goo.gl/sYtFJSgQR7oAqi5u5" },
+          { label: "▶️ YouTube", url: "https://youtu.be/2r0t8QfrWKs" },
+          { label: "เพจ FB", url: "https://www.facebook.com/profile.php?id=61574951787039" }
+        ]
+      },
+      {
+        id: "minicamping",
+        name: "มินิแคมป์ปิ้ง ชะอม (Mini Camping)",
+        batch: "ชุด 1 (Top Pick)",
+        region: "saraburi",
+        regionLabel: "ต.ชะอม อ.แก่งคอย สระบุรี",
+        distKm: 118,
+        driveTime: "1.5–2 ชม.",
+        priceNum: 150,
+        priceText: "ผู้ใหญ่ 150–200 บ. / เด็กสูง ≤130 ซม. ฟรี",
+        statusType: "open",
+        statusText: "เปิดปกติ (100% rec · 10K followers)",
+        carCamp: "จุดขาย 'ติดน้ำตกรถบ้านริมน้ำ' จอดรถนอนชิดลำธาร มีไฟ+น้ำอุ่น สัญญาณแรงทุกค่าย",
+        kids: "เล่นน้ำลำธาร/น้ำตกใสหน้าลาน สั่ง 7-Eleven ส่งถึงหน้าลานได้",
+        phone: "",
+        phoneDisplay: "ทักแชตเพจ",
+        tags: ["water", "carcamp", "kidfree"],
+        featuredRank: 2,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/profile.php?id=61566338681337&sk=photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/profile.php?id=61566338681337" },
+          { label: "🖼️ รูป Google", url: "https://www.google.com/search?tbm=isch&q=%E0%B8%A1%E0%B8%B4%E0%B8%99%E0%B8%B4%E0%B9%81%E0%B8%84%E0%B8%A1%E0%B8%9B%E0%B9%8C%E0%B8%9B%E0%B8%B4%E0%B9%89%E0%B8%87+%E0%B8%8A%E0%B8%B0%E0%B8%AD%E0%B8%A1+%E0%B8%AA%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B8%E0%B8%A3%E0%B8%B5" }
+        ]
+      },
+      {
+        id: "banrai_lamchae",
+        name: "บ้านไร่ริมธาร ลำแชะ (ลิงก์ที่ส่งมา)",
+        batch: "ชุด 1 (Benchmark)",
+        region: "korat",
+        regionLabel: "อ.ครบุรี นครราชสีมา",
+        distKm: 310,
+        driveTime: "4–4.5 ชม.",
+        priceNum: 150,
+        priceText: "150 บ./คน (รวมอาหารเช้า: ข้าวต้ม กาแฟ โอวัลติน)",
+        statusType: "open",
+        statusText: "เปิดปกติ (เพจลงภาพ 21/11/69 · TikTok อัปเดต 4 ชม.–2 วันก่อน)",
+        carCamp: "รถนอน/รถบ้านเข้าได้ มีโซนเงียบ vs ปาร์ตี้ (EV ควรชาร์จจากโชคชัย/เมืองโคราช)",
+        kids: "5/5 แน่นสุด: คายัค ซับบอร์ด แพเปียก ห่วงยาง ว่าว ผีเสื้อ ล่องเรือชมเขื่อน",
+        phone: "0928412333",
+        phoneDisplay: "092-841-2333 (ลุงพร)",
+        tags: ["water", "boat", "carcamp", "walkin"],
+        featuredRank: 3,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/banri.rim.thar.la.ch.a/photos" },
+          { label: "🎥 TikTok", url: "https://www.tiktok.com/@lamchae27/video/7711339335261506817" },
+          { label: "🎥 รีวิวคนไปซ้ำ", url: "https://www.tiktok.com/@meen3107/video/7710899870097214727" },
+          { label: "🗺️ Maps", url: "https://share.google/ju1A49RssQ3HAI9dW" }
+        ]
+      },
+      {
+        id: "phusueynamisai",
+        name: "ภูสวยน้ำใส ชะอม แคมป์",
+        batch: "ชุด 2 (เปิดว่าง พ.ย.)",
+        region: "saraburi",
+        regionLabel: "ม.9 ต.ชะอม อ.แก่งคอย สระบุรี",
+        distKm: 118,
+        driveTime: "1.5–2 ชม.",
+        priceNum: 150,
+        priceText: "ผู้ใหญ่ 150–200 บ. / เด็กต่ำกว่า 10 ปี ฟรี! (แอร์ 250 บ.)",
+        statusType: "open",
+        statusText: "เปิดปกติ (100% rec · เพิ่งโพสต์บ้าน/ลานว่าง พ.ย.)",
+        carCamp: "จอดตั้งแคมป์/นอนในรถในพื้นที่ลานได้ มีปลั๊กไฟบริการ",
+        kids: "น้ำใสมาก มีโซนตื้น+ลึก มีชูชีพฟรี (คนไม่ได้พักเข้าเล่นน้ำ 80 บ.)",
+        phone: "0628494297",
+        phoneDisplay: "062-849-4297 / 088-651-9641",
+        tags: ["water", "carcamp", "kidfree"],
+        featuredRank: 4,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/profile.php?id=61568531506278&sk=photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/profile.php?id=61568531506278" },
+          { label: "🖼️ รูป Google", url: "https://www.google.com/search?tbm=isch&q=%E0%B8%A0%E0%B8%B9%E0%B8%AA%E0%B8%A7%E0%B8%A2%E0%B8%99%E0%B9%89%E0%B8%B3%E0%B9%83%E0%B8%AA+%E0%B8%8A%E0%B8%B0%E0%B8%AD%E0%B8%A1+%E0%B9%81%E0%B8%84%E0%B8%A1%E0%B8%9B%E0%B9%8C" }
+        ]
+      },
+      {
+        id: "connex",
+        name: "Connex Camp ชะอม",
+        batch: "ชุด 2",
+        region: "saraburi",
+        regionLabel: "ต.ชะอม อ.แก่งคอย สระบุรี",
+        distKm: 118,
+        driveTime: "1.5–2 ชม.",
+        priceNum: 300,
+        priceText: "โซน C Car Camp 600 บ./ล็อค (2 คน) / แอร์ 150–200 บ.",
+        statusType: "open",
+        statusText: "เปิดปกติ (มีรีวิว Car Camp ชัดเจน)",
+        carCamp: "เด่น: โซน C Car Camp ริมน้ำได้ทุกวัน (ลานหินเรียบไม่เฉะ) โซน A รถเข้าได้เฉพาะวันธรรมดา",
+        kids: "ลำธารใสไหลเย็นเล่นน้ำหน้าลานได้ มี Wi-Fi+น้ำอุ่น Pet-friendly",
+        phone: "",
+        phoneDisplay: "ค้นหาเพจ Connex Camp",
+        tags: ["water", "carcamp"],
+        featuredRank: 5,
+        links: [
+          { label: "🖼️ รูป Google", url: "https://www.google.com/search?tbm=isch&q=Connex+Camp+%E0%B8%8A%E0%B8%B0%E0%B8%AD%E0%B8%A1+%E0%B8%AA%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B8%E0%B8%A3%E0%B8%B5" }
+        ]
+      },
+      {
+        id: "baanmuanfan",
+        name: "บ้านเหมือนฝัน Camping & Farm",
+        batch: "ชุด 2 (เด่นกิจกรรมเด็ก)",
+        region: "saraburi",
+        regionLabel: "ต.ซับสนุ่น อ.มวกเหล็ก สระบุรี",
+        distKm: 142,
+        driveTime: "2–2.5 ชม.",
+        priceNum: 200,
+        priceText: "ทักเพจเช็กเรทกางเต็นท์/จอดนอน",
+        statusType: "open",
+        statusText: "เปิดปกติ (9.5K followers)",
+        carCamp: "มีปลั๊กไฟรองรับทั้งโซน ห้องน้ำสะอาดพร้อมน้ำอุ่นทุกห้อง (ทักเช็กจุดจอดนอน)",
+        kids: "5/5 กิจกรรมเด็ก: ติดน้ำตก + ให้นมแพะ ขี่ ATV เล่นว่าว เตะบอล ตีแบต",
+        phone: "0658236541",
+        phoneDisplay: "065-823-6541 / 086-668-0208",
+        tags: ["water"],
+        featuredRank: 6,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/profile.php?id=61551055632707&sk=photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/profile.php?id=61551055632707" },
+          { label: "🖼️ รูป Google", url: "https://www.google.com/search?tbm=isch&q=%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B9%80%E0%B8%AB%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%99%E0%B8%9D%E0%B8%B1%E0%B8%99+Camping+%26+farm+%E0%B8%A1%E0%B8%A7%E0%B8%81%E0%B9%80%E0%B8%AB%E0%B8%A5%E0%B9%87%E0%B8%81" }
+        ]
+      },
+      {
+        id: "plawhale",
+        name: "ปลาวาฬหลงทาง CAMP & CAFE'",
+        batch: "ชุด 2",
+        region: "saraburi",
+        regionLabel: "อ.มวกเหล็ก สระบุรี",
+        distKm: 138,
+        driveTime: "2–2.5 ชม.",
+        priceNum: 300,
+        priceText: "300 บ./คน/คืน (ไป-กลับเล่นน้ำ 100 บ.)",
+        statusType: "open",
+        statusText: "เปิดปกติ (46K followers · คอมเมนต์ลูกค้า กทม. 2 วันก่อน)",
+        carCamp: "นำรถเข้ากาง/นอนในรถได้ มีปลั๊กทั่วลาน (ทักถามจุดจอด+ค่าแอร์)",
+        kids: "ริมน้ำตกมวกเหล็ก มีคายัค ซับบอร์ด แพเปียก ชูชีพ และน้ำแข็งฟรีตลอดคืน",
+        phone: "0944864330",
+        phoneDisplay: "094-486-4330",
+        tags: ["water", "boat", "carcamp"],
+        featuredRank: 7,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/PLAWHALEHLONGTANG/photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/PLAWHALEHLONGTANG" }
+        ]
+      },
+      {
+        id: "jeabcamp",
+        name: "เจี๊ยบแคมป์ มวกเหล็ก (Jeab Camp)",
+        batch: "ชุด 2",
+        region: "saraburi",
+        regionLabel: "อ.มวกเหล็ก สระบุรี",
+        distKm: 138,
+        driveTime: "2–2.5 ชม.",
+        priceNum: 200,
+        priceText: "ลานกางเต็นท์ 200 บ./คน/คืน (มีบ้านพัก/เต็นท์เช่าด้วย)",
+        statusType: "open",
+        statusText: "เปิดปกติ (เพจเพิ่งโพสต์บรรยากาศเริ่มหนาว)",
+        carCamp: "ติดริมน้ำ มีลานกว้าง (ทักถามจุดจอดนอนในรถ)",
+        kids: "เล่นน้ำใสตลอดปี พายเรือ ล่องห่วงยาง ใกล้ฟาร์มโคนมไทย-เดนมาร์ค",
+        phone: "0815807054",
+        phoneDisplay: "081-580-7054",
+        tags: ["water", "boat"],
+        featuredRank: 8,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/JeabCampTH/photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/JeabCampTH" }
+        ]
+      },
+      {
+        id: "kangkhao",
+        name: "กางเขา แคมป์ปิ้ง ชะอม",
+        batch: "ชุด 2",
+        region: "saraburi",
+        regionLabel: "ต.ชะอม อ.แก่งคอย สระบุรี",
+        distKm: 118,
+        driveTime: "1.5–2 ชม.",
+        priceNum: 200,
+        priceText: "ทักเช็กเรทคาร์แคมป์กับแอดมิน (มีทั้งลานและบ้านพัก)",
+        statusType: "open",
+        statusText: "เปิดปกติ (100% rec · 12K · รหัส SRB832 คอลวิดีโอได้)",
+        carCamp: "เพจติดแท็ก #คาร์แคมป์ ริมลำธาร ฟรี Wi-Fi สัญญาณ AIS",
+        kids: "เล่นน้ำลำธารหน้าลาน ปิ้งหมูกระทะริมน้ำ",
+        phone: "0613214484",
+        phoneDisplay: "061-321-4484 / 061-821-5062",
+        tags: ["water", "carcamp"],
+        featuredRank: 9,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/Kangkhao.camping/photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/Kangkhao.camping" }
+        ]
+      },
+      {
+        id: "daolomfah",
+        name: "Dao Lom Fah Camping ชะอม",
+        batch: "ชุด 2",
+        region: "saraburi",
+        regionLabel: "ต.ชะอม อ.แก่งคอย สระบุรี",
+        distKm: 118,
+        driveTime: "1.5–2 ชม.",
+        priceNum: 200,
+        priceText: "ทักแชตเพจเช็กราคา & ล็อกว่างโซน A–C",
+        statusType: "open",
+        statusText: "เปิดปกติ (เพจเพิ่งโปรโมตในกลุ่มจุดกางเต็นท์เมื่อ 1 วันก่อน)",
+        carCamp: "มีโซน A–C ทั้งร่มไม้และวิวเขา (ทักเช็กจุดจอดนอนในรถ)",
+        kids: "ลงเล่นน้ำลำธารได้ ปิ้งย่างได้ ดูดาวกลางคืน",
+        phone: "",
+        phoneDisplay: "ทักแชตเพจ",
+        tags: ["water"],
+        featuredRank: 10,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/profile.php?id=61573521102716&sk=photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/profile.php?id=61573521102716" }
+        ]
+      },
+      {
+        id: "chetkot",
+        name: "เจ็ดคด–โป่งก้อนเส้า (กันเหนียว Walk-in)",
+        batch: "ชุด 2 (ลานใหญ่ไม่กลัวเต็ม)",
+        region: "saraburi",
+        regionLabel: "อ.แก่งคอย สระบุรี",
+        distKm: 125,
+        driveTime: "1.5–2 ชม.",
+        priceNum: 50,
+        priceText: "ทำบุญตามศรัทธา (ลงทะเบียนหน้าศูนย์)",
+        statusType: "open",
+        statusText: "เปิดปกติ · ลานใหญ่มาก Walk-in ได้!",
+        carCamp: "จอดรถนอนริมอ่างเก็บน้ำได้ (ไม่มีปลั๊กไฟ — เหมาะมากถ้าใช้รถ EV Camp Mode เอง)",
+        kids: "สนามหญ้ากว้างมาก ดูนก/น้องกวางรอบอ่าง เดินน้ำตก (ไม่เน้นแช่น้ำหน้าลาน)",
+        phone: "",
+        phoneDisplay: "ลงทะเบียนหน้าศูนย์",
+        tags: ["carcamp", "kidfree", "walkin"],
+        featuredRank: 11,
+        links: [
+          { label: "🗺️ Maps & รูป", url: "https://maps.app.goo.gl/k4QtQB2KcMNheKqK6" },
+          { label: "🖼️ รูป Google", url: "https://www.google.com/search?tbm=isch&q=%E0%B9%80%E0%B8%88%E0%B9%87%E0%B8%94%E0%B8%84%E0%B8%94+%E0%B9%82%E0%B8%9B%E0%B9%88%E0%B8%87%E0%B8%81%E0%B9%89%E0%B8%AD%E0%B8%99%E0%B9%80%E0%B8%AA%E0%B9%89%E0%B8%B2+%E0%B8%AA%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B8%E0%B8%A3%E0%B8%B5" }
+        ]
+      },
+      {
+        id: "nawana",
+        name: "ณ วนา แคมป์กราวด์ (Na-Wana)",
+        batch: "ชุด 1 (วันเสาร์เต็มไว)",
+        region: "saraburi",
+        regionLabel: "ต.ชะอม อ.แก่งคอย สระบุรี",
+        distKm: 118,
+        driveTime: "1.5–2 ชม.",
+        priceNum: 200,
+        priceText: "ผู้ใหญ่ 200 บ. / เด็ก <12 ปี ฟรี! / แอร์ 200 บ.",
+        statusType: "warn",
+        statusText: "เปิดปกติ แต่จองเดือนต่อเดือน วันเสาร์เต็มไวมาก",
+        carCamp: "จอดนอนใต้ร่มไม้ใหญ่ มีปลั๊กไฟ น้ำอุ่น สัญญาณ AIS เสถียรสุด",
+        kids: "ลำธารใสจากน้ำตกโกรกอีดก ร่มรื่นทั้งวัน",
+        phone: "0988292579",
+        phoneDisplay: "098-829-2579",
+        tags: ["water", "carcamp", "kidfree"],
+        featuredRank: 12,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/NaWanaCampGround/photos" },
+          { label: "🎥 TikTok", url: "https://www.tiktok.com/@minivanture2025/video/7506914869996735762" },
+          { label: "🗺️ Maps", url: "https://goo.gl/maps/NJQyjgXwrHB32F5H6" }
+        ]
+      },
+      {
+        id: "farmford",
+        name: "Farm & Ford Camping and Chilling",
+        batch: "ชุด 1",
+        region: "saraburi",
+        regionLabel: "ต.ชะอม อ.แก่งคอย สระบุรี",
+        distKm: 118,
+        driveTime: "1.5–2 ชม.",
+        priceNum: 150,
+        priceText: "ประมาณ 150 บ./คน (ทักเช็กเรทเด็ก 7 ขวบ)",
+        statusType: "open",
+        statusText: "เปิดปกติ (98% rec · 27K followers)",
+        carCamp: "มีโซนเอารถเข้าจอดร่วมจุดแคมป์ได้ มีเสาไฟ+ห้องน้ำสะอาด",
+        kids: "มีลำธารเล่นน้ำ/จุ่มเท้าใต้ร่มไม้ใหญ่ Pet-friendly",
+        phone: "0643176074",
+        phoneDisplay: "064-317-6074",
+        tags: ["water", "carcamp"],
+        featuredRank: 13,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/farmandfordcampingandchilling/photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/farmandfordcampingandchilling" }
+        ]
+      },
+      {
+        id: "escapehill",
+        name: "The Escape Hill Camping",
+        batch: "ชุด 1 (ไม่มีน้ำเล่น)",
+        region: "saraburi",
+        regionLabel: "อ.มวกเหล็ก สระบุรี",
+        distKm: 138,
+        driveTime: "2–2.5 ชม.",
+        priceNum: 300,
+        priceText: "300–350 บ./คน / เด็ก <10 ปี ฟรี! / แอร์ 200 บ.",
+        statusType: "warn",
+        statusText: "เปิดปกติ · บางวันมีอีเวนต์เหมาลาน ทักเช็กวันว่างก่อน",
+        carCamp: "มีโซน Car Camp เลือกล็อกเองได้ ไฟทุกล็อก ห้องน้ำ 50 ห้อง ใกล้ EVOASIS 120kW",
+        kids: "ไม่มีลำธารให้เล่นน้ำ เน้นสนามหญ้า วิวเขา 360 องศา ดูดาว",
+        phone: "0624790555",
+        phoneDisplay: "062-479-0555",
+        tags: ["carcamp", "kidfree"],
+        featuredRank: 14,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/theescapehillcamping/photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/theescapehillcamping" }
+        ]
+      },
+      {
+        id: "baansuanngam",
+        name: "บ้านสวนงาม ชะอม",
+        batch: "ชุด 2",
+        region: "saraburi",
+        regionLabel: "ต.ชะอม อ.แก่งคอย สระบุรี",
+        distKm: 118,
+        driveTime: "1.5–2 ชม.",
+        priceNum: 300,
+        priceText: "กางเต็นท์ 300 บ./คน (มีรถบ้าน/บ้านพักให้เช่าด้วย)",
+        statusType: "open",
+        statusText: "เปิดปกติ (มีรีวิวช่วง พ.ย.–ม.ค. อากาศดี)",
+        carCamp: "จอดรถใกล้ลานริมน้ำ (ทักถามจุดจอดนอนในรถ)",
+        kids: "ติดริมน้ำ ล่องห่วงยางเล่นน้ำฉ่ำ มีดนตรีสด ศุกร์–เสาร์",
+        phone: "",
+        phoneDisplay: "ทักแชตเพจ",
+        tags: ["water"],
+        featuredRank: 15,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/baansuanngam/photos" },
+          { label: "🗺️ Maps", url: "https://goo.gl/maps/xLqcYZKTASMha9uh7" }
+        ]
+      },
+      {
+        id: "madothan",
+        name: "มาดูธาร แคมป์ปิ้ง (เช็กโทรตรง)",
+        batch: "ชุด 1 (อัปเดตสถานะ)",
+        region: "saraburi",
+        regionLabel: "ต.ชะอม อ.แก่งคอย สระบุรี",
+        distKm: 118,
+        driveTime: "1.5–2 ชม.",
+        priceNum: 200,
+        priceText: "200 บ./คน / เด็ก <12 ปี ฟรี!",
+        statusType: "warn",
+        statusText: "เพจเดิมปิด แต่ลานยังเปิด — ต้องโทรเช็กโดยตรง",
+        carCamp: "มีจุดจอดรถใกล้ลาน มีปลั๊กไฟและบริการน้ำแข็งฟรี",
+        kids: "ติดลำธารน้ำใสจากโซนโกรกอีดก เล่นน้ำได้",
+        phone: "0818992977",
+        phoneDisplay: "081-899-2977",
+        tags: ["water", "kidfree"],
+        featuredRank: 24,
+        links: [
+          { label: "🗺️ Maps", url: "https://maps.app.goo.gl/ReVmRoHobNvPpThq6" },
+          { label: "🖼️ รูป Google", url: "https://www.google.com/search?tbm=isch&q=%E0%B8%A1%E0%B8%B2%E0%B8%94%E0%B8%B9%E0%B8%98%E0%B8%B2%E0%B8%A3+%E0%B8%8A%E0%B8%B0%E0%B8%AD%E0%B8%A1+%E0%B8%AA%E0%B8%A3%E0%B8%B0%E0%B8%9A%E0%B8%B8%E0%B8%A3%E0%B8%B5" }
+        ]
+      },
+      {
+        id: "moonriver",
+        name: "The Moon River Camp ปากช่อง",
+        batch: "ชุด 2 (แนะนำปากช่อง)",
+        region: "korat",
+        regionLabel: "ต.จันทึก อ.ปากช่อง นครราชสีมา",
+        distKm: 175,
+        driveTime: "2.5–3 ชม.",
+        priceNum: 200,
+        priceText: "ผู้ใหญ่ 200 บ. / เด็ก 5–9 ปี 50 บ.! / แอร์ ≤12,000 BTU 200 บ.",
+        statusType: "open",
+        statusText: "เปิดปกติ (100% rec · เพจปักหมุดกฎและราคาชัดเจน)",
+        carCamp: "ระบุชัด 'มีจุดจอดคาร์แคมป์ในลาน' เช็กอินเร็ว 11:00 น. มีปลั๊ก+น้ำอุ่น+กาแฟสด",
+        kids: "ติดลำธารน้ำใสไหลเย็นเล่นได้ทั้งปี สั่งอาหาร/หมูกระทะในลานได้เลย",
+        phone: "0898445181",
+        phoneDisplay: "089-844-5181",
+        tags: ["water", "carcamp", "kidfree"],
+        featuredRank: 6,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/profile.php?id=61586091075149&sk=photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/profile.php?id=61586091075149" }
+        ]
+      },
+      {
+        id: "memorycamp",
+        name: "Memory Camp ลานกางเต็นท์เขาใหญ่",
+        batch: "ชุด 2",
+        region: "korat",
+        regionLabel: "หน้าอุทยานเขาใหญ่ อ.ปากช่อง โคราช",
+        distKm: 175,
+        driveTime: "2.5 ชม.",
+        priceNum: 200,
+        priceText: "รถแคมป์ 200 บ./คัน/คืน (หรือกางเต็นท์ 250 บ./คน)",
+        statusType: "open",
+        statusText: "เปิดปกติ (เพจเพิ่งโพสต์โปรโมตใน FB Search)",
+        carCamp: "ระบุชัด 'มีลานจอด Car Camp' ระบบไฟทั่วพื้นที่ น้ำอุ่นทุกห้อง",
+        kids: "ติดลำธาร ร่มไม้ใหญ่ทั้งวัน อากาศหนาว มีดนตรีสดคืนวันเสาร์",
+        phone: "0922817578",
+        phoneDisplay: "092-281-7578",
+        tags: ["water", "carcamp"],
+        featuredRank: 9,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/mormorthailand/photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/mormorthailand" }
+        ]
+      },
+      {
+        id: "rairungarun",
+        name: "ไร่รุ่งอรุณ เขาใหญ่",
+        batch: "ชุด 1 (เช็กแล้วเปิด พ.ย.–ธ.ค.)",
+        region: "korat",
+        regionLabel: "อ.ปากช่อง นครราชสีมา",
+        distKm: 175,
+        driveTime: "2.5–3 ชม.",
+        priceNum: 200,
+        priceText: "สอบถามเรทล่าสุดทางแชต/โทร (มาตรฐาน ~150–250 บ.)",
+        statusType: "open",
+        statusText: "เปิดปกติ (100% rec · 30K · เพิ่งโพสต์รับเดือน ธ.ค.)",
+        carCamp: "รองรับ Car Camp / นอนในรถ มีจุดต่อไฟ สัญญาณครบ สั่ง 7-Eleven ส่งได้",
+        kids: "ติดริมน้ำใส มีเรือและชูชีพ/ห่วงยางให้ยืมลงเล่นน้ำ สนามหญ้ากว้าง",
+        phone: "0811863740",
+        phoneDisplay: "081-186-3740",
+        tags: ["water", "boat", "carcamp"],
+        featuredRank: 10,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/rungarun.khaoyai/photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/rungarun.khaoyai" }
+        ]
+      },
+      {
+        id: "waterhill",
+        name: "แคมป์ปิ้ง วังน้ำเขียว วอเตอร์ฮิลล์",
+        batch: "ชุด 2",
+        region: "korat",
+        regionLabel: "ต.ตะขบ อ.ปักธงชัย (โซนลำพระเพลิง) โคราช",
+        distKm: 225,
+        driveTime: "3–3.5 ชม.",
+        priceNum: 150,
+        priceText: "กางเต็นท์/รถแคมป์ 150 บ./คน (โปรเพจถึง 20 ธ.ค. 69)",
+        statusType: "open",
+        statusText: "เปิดปกติ (100% rec · ลงโปรปีนี้ถึง 20 ธ.ค. 69)",
+        carCamp: "โพสต์ระบุชัด 'ยินดีต้อนรับรถแคมป์ จอดนอน' ทำอาหารได้",
+        kids: "วิวเขื่อนลำพระเพลิง ตกปลา ชมหมอกเช้า (ไม่เน้นลงเล่นน้ำแบบลำธาร)",
+        phone: "0880490444",
+        phoneDisplay: "088-049-0444 (LINE: ratha54)",
+        tags: ["carcamp"],
+        featuredRank: 16,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/waterhill.camping/photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/waterhill.camping" }
+        ]
+      },
+      {
+        id: "view304",
+        name: "แคมป์ปิ้งวิววังน้ำเขียว 304",
+        batch: "ชุด 2 (เพิ่งโพสต์ว่าว่าง)",
+        region: "korat",
+        regionLabel: "อ.นาดี–วังน้ำเขียว (ถ.304)",
+        distKm: 215,
+        driveTime: "3–3.5 ชม.",
+        priceNum: 150,
+        priceText: "150 บ./คน (มีไฟฟ้า) / รถบ้าน-บ้านวิวเขา 1,600 บ.",
+        statusType: "open",
+        statusText: "โพสต์ในกลุ่มหลงเต็นท์ว่า 'หยุดยาวนี้ยังว่าง'",
+        carCamp: "จอดใกล้ลานกางเต็นท์ มีไฟฟ้า (ทักเช็กจอดนอนในรถ)",
+        kids: "วิวภูเขาโล่ง อากาศเย็น ชมหมอก คนไม่แน่น",
+        phone: "",
+        phoneDisplay: "ทักแชตเพจ",
+        tags: [],
+        featuredRank: 17,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/profile.php?id=100064281000147&sk=photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/profile.php?id=100064281000147" }
+        ]
+      },
+      {
+        id: "lukthong",
+        name: "บ้านไร่หลักทอง & แคมป์ปิ้ง",
+        batch: "ชุด 1 (มีสระว่ายน้ำ)",
+        region: "korat",
+        regionLabel: "ถ.3060 อ.วังน้ำเขียว โคราช",
+        distKm: 240,
+        driveTime: "3–3.5 ชม.",
+        priceNum: 200,
+        priceText: "200 บ./คน (ฟรีสระว่ายน้ำ!)",
+        statusType: "open",
+        statusText: "เปิดปกติ (100% rec · 60K followers)",
+        carCamp: "มีลานกางเต็นท์ (โทรเช็กจุดจอดนอนในรถก่อนเข้าพัก)",
+        kids: "มีสระว่ายน้ำฟรี! ปลอดภัยคุมเด็ก 7 ขวบง่ายกว่าลำธาร + วิวเขา 3060",
+        phone: "0985124078",
+        phoneDisplay: "098-512-4078",
+        tags: ["water"],
+        featuredRank: 18,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/profile.php?id=100026328086966&sk=photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/profile.php?id=100026328086966" }
+        ]
+      },
+      {
+        id: "baanpaison",
+        name: "บ้านปายสน Private Camp",
+        batch: "ชุด 1 (TikTok Car Camp)",
+        region: "korat",
+        regionLabel: "ต.ระเริง อ.วังน้ำเขียว โคราช",
+        distKm: 240,
+        driveTime: "3–3.5 ชม.",
+        priceNum: 200,
+        priceText: "ทักแชตเพจเช็กราคาล่าสุด",
+        statusType: "open",
+        statusText: "เปิดปกติ (100% rec · มีรีวิว TikTok โซน Car Camp)",
+        carCamp: "มีโซน Car Camp แยกเป็นสัดส่วน Pet-friendly",
+        kids: "วิวภูเขา อากาศหนาว ดูดาว (ไม่มีลำธาร)",
+        phone: "",
+        phoneDisplay: "ทักเพจสำรอง",
+        tags: ["carcamp"],
+        featuredRank: 22,
+        links: [
+          { label: "📸 รูป FB สำรอง", url: "https://www.facebook.com/profile.php?id=61592413685095&sk=photos" },
+          { label: "🎥 TikTok", url: "https://www.tiktok.com/@baan_paison/video/7677952153104977159" }
+        ]
+      },
+      {
+        id: "rommai_suanphueng",
+        name: "ร่มไม้ริมธาร สวนผึ้ง",
+        batch: "ชุด 1 (Top ราชบุรี)",
+        region: "ratchaburi",
+        regionLabel: "อ.สวนผึ้ง ราชบุรี",
+        distKm: 168,
+        driveTime: "2.5–3 ชม.",
+        priceNum: 150,
+        priceText: "ประมาณ 150 บ./คน (มีค่าพ่วงไฟเล็กน้อย)",
+        statusType: "open",
+        statusText: "เปิดปกติ (มีคลิปรีวิวนอนในรถบน TikTok)",
+        carCamp: "ลานกรวดสะอาดใต้ร่มไม้ใหญ่ จอดรถนอนริมน้ำได้ มีจุดพ่วงไฟ",
+        kids: "ลำธารภาชีน้ำใสไหลเย็น ตื้นปลอดภัย เด็ก 7 ขวบเดินเล่นน้ำสบาย",
+        phone: "",
+        phoneDisplay: "ดูใน Maps / เพจ",
+        tags: ["water", "carcamp"],
+        featuredRank: 7,
+        links: [
+          { label: "🗺️ Maps & รูป", url: "https://maps.app.goo.gl/WHyeS6voAdHfmnWH8" },
+          { label: "🎥 TikTok นอนในรถ", url: "https://www.tiktok.com/@singer_travel/video/7673432775143214344" },
+          { label: "🖼️ รูป Google", url: "https://www.google.com/search?tbm=isch&q=%E0%B8%A3%E0%B9%88%E0%B8%A1%E0%B9%84%E0%B8%A1%E0%B9%89%E0%B8%A3%E0%B8%B4%E0%B8%A1%E0%B8%98%E0%B8%B2%E0%B8%A3+%E0%B8%AA%E0%B8%A7%E0%B8%99%E0%B8%9C%E0%B8%B6%E0%B9%89%E0%B8%87" }
+        ]
+      },
+      {
+        id: "siatueng",
+        name: "เสี่ยตึ๋งแคมป์ สวนผึ้ง (ภูอิงธารเดิม)",
+        batch: "ชุด 1 (มีรีวิวนอน EV)",
+        region: "ratchaburi",
+        regionLabel: "อ.สวนผึ้ง ราชบุรี",
+        distKm: 168,
+        driveTime: "2.5–3 ชม.",
+        priceNum: 150,
+        priceText: "150 บ./คน / เด็ก <10 ปี ฟรี!",
+        statusType: "open",
+        statusText: "เปิดปกติ (ย้ายจากเพจภูอิงธารมาเพจนี้ · คอมเมนต์ 6 วันก่อน)",
+        carCamp: "มีคลิปรีวิวขับ EV Leapmotor มานอน Car Camp จริง! มีจุดพ่วงไฟ",
+        kids: "มีทั้งโซนน้ำตื้นและโซนน้ำลึก (~2 ม. ต้องดูแลใกล้ชิด)",
+        phone: "0926658811",
+        phoneDisplay: "092-665-8811",
+        tags: ["water", "carcamp", "kidfree"],
+        featuredRank: 8,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/profile.php?id=61575336298435&sk=photos" },
+          { label: "🎥 TikTok รถ EV", url: "https://www.tiktok.com/@lungearthtravel/video/7644962817543556370" },
+          { label: "เพจ FB", url: "https://www.facebook.com/profile.php?id=61575336298435" }
+        ]
+      },
+      {
+        id: "phupha_bankha",
+        name: "Phupha Coffee Camp (ป่าสนบ้านคา)",
+        batch: "ชุด 2 (ลานใหญ่ Walk-in ได้)",
+        region: "ratchaburi",
+        regionLabel: "ต.บ้านบึง อ.บ้านคา ราชบุรี",
+        distKm: 162,
+        driveTime: "2.5 ชม.",
+        priceNum: 250,
+        priceText: "250 บ./คน/คืน (โซนป่าสน 1 คนก็ 250 บ.)",
+        statusType: "open",
+        statusText: "เปิดปกติ (96K followers · โซนป่าสนไม่มีล็อก Walk-in ได้)",
+        carCamp: "จอดรถนอน Car Camp ในโซนป่าสนริมอ่างเก็บน้ำได้ ลานกว้างมาก คาเฟ่+อาหารครบ",
+        kids: "บรรยากาศป่าสนฟีลต่างประเทศ ริมอ่างเก็บน้ำห้วยท่าเคย (ไม่เน้นลงเล่นน้ำ)",
+        phone: "",
+        phoneDisplay: "จองผ่าน Inbox เพจ",
+        tags: ["carcamp", "walkin"],
+        featuredRank: 11,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/PhuphaCoffeeCamp/photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/PhuphaCoffeeCamp" }
+        ]
+      },
+      {
+        id: "kstream",
+        name: "K Stream Camping สวนผึ้ง",
+        batch: "ชุด 2",
+        region: "ratchaburi",
+        regionLabel: "เทือกเขาตะนาวศรี อ.สวนผึ้ง ราชบุรี",
+        distKm: 168,
+        driveTime: "2.5–3 ชม.",
+        priceNum: 150,
+        priceText: "โซนร่มไม้/Car Camp 150 บ. (ริมน้ำ 200 บ.) / เด็ก 7–10 ปี 80 บ.",
+        statusType: "open",
+        statusText: "เปิดปกติ (เจอโพสต์รีวิวล่าสุดในกลุ่มจุดกางเต็นท์)",
+        carCamp: "ระบุชัด 'ร่มไม้/Car Camp' มีจุดพ่วงไฟหลายจุด Pet-friendly",
+        kids: "ลำธารน้ำใสเย็นเจี๊ยบลงเล่นน้ำได้ ร่มรื่นทั้งวัน",
+        phone: "",
+        phoneDisplay: "ดูใน Maps",
+        tags: ["water", "carcamp", "kidfree"],
+        featuredRank: 12,
+        links: [
+          { label: "🗺️ Maps & รูป", url: "https://maps.app.goo.gl/EbKKUda8vUPLqEYc6" },
+          { label: "🖼️ รูป Google", url: "https://www.google.com/search?tbm=isch&q=K+Stream+Camping+%E0%B8%AA%E0%B8%A7%E0%B8%99%E0%B8%9C%E0%B8%B6%E0%B9%89%E0%B8%87" }
+        ]
+      },
+      {
+        id: "kullisara",
+        name: "ไร่กุลิสรา กางเต็นท์ เล่นน้ำ",
+        batch: "ชุด 2",
+        region: "ratchaburi",
+        regionLabel: "อ.สวนผึ้ง ราชบุรี",
+        distKm: 168,
+        driveTime: "2.5–3 ชม.",
+        priceNum: 120,
+        priceText: "100–150 บ./คน / เด็ก <10 ขวบ ฟรี! (มีบ้านแอร์ 1,890 บ.)",
+        statusType: "open",
+        statusText: "เปิดปกติ (31K followers · 94% rec · เน้นเงียบสงบ)",
+        carCamp: "รถเข้าถึงสะดวก จอดใกล้ลานมีจุดพ่วงไฟ (ทักเช็กจอดนอนในรถ)",
+        kids: "ติดลำน้ำภาชี เล่นน้ำได้ มีอาหารตามสั่ง",
+        phone: "0985467754",
+        phoneDisplay: "098-546-7754",
+        tags: ["water", "kidfree"],
+        featuredRank: 19,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/profile.php?id=100067547714912&sk=photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/profile.php?id=100067547714912" }
+        ]
+      },
+      {
+        id: "chonkaew",
+        name: "ชนแก้วแคมป์ปิ้ง สวนผึ้ง",
+        batch: "ชุด 2 (พายคายัค + ถูกมาก)",
+        region: "ratchaburi",
+        regionLabel: "บ้านตะเคียนทอง อ.สวนผึ้ง ราชบุรี",
+        distKm: 168,
+        driveTime: "2.5–3 ชม.",
+        priceNum: 120,
+        priceText: "120 บ./คน (มีไฟฟ้า + Wi-Fi + น้ำแข็ง)",
+        statusType: "open",
+        statusText: "เปิดปกติ (เจอโพสต์รีวิวล่าสุดในกลุ่มจุดกางเต็นท์)",
+        carCamp: "ลานใต้ร่มไม้ (ทักเช็กจุดจอดรถนอนในรถ)",
+        kids: "ลำธารยาวๆ น้ำใส มีเรือคายัคให้พายเล่นได้!",
+        phone: "",
+        phoneDisplay: "ค้นหาเพจ ชนแก้วแคมป์ปิ้ง",
+        tags: ["water", "boat"],
+        featuredRank: 14,
+        links: [
+          { label: "🖼️ รูป Google", url: "https://www.google.com/search?tbm=isch&q=%E0%B8%8A%E0%B8%99%E0%B9%81%E0%B8%81%E0%B9%89%E0%B8%A7%E0%B9%81%E0%B8%84%E0%B8%A1%E0%B8%9B%E0%B9%8C%E0%B8%9B%E0%B8%B4%E0%B9%89%E0%B8%87+%E0%B8%AA%E0%B8%A7%E0%B8%99%E0%B8%9C%E0%B8%B6%E0%B9%89%E0%B8%87" }
+        ]
+      },
+      {
+        id: "jintanakan",
+        name: "จินตนากาญ Camp & Bistro",
+        batch: "ชุด 1 (Top กาญจน์)",
+        region: "kanchanaburi",
+        regionLabel: "ต.ช่องสะเดา อ.เมือง กาญจนบุรี",
+        distKm: 170,
+        driveTime: "2.5–3 ชม.",
+        priceNum: 250,
+        priceText: "250 บ./คน / เด็ก ≤8 ขวบ ฟรี! (9–12 ปี 150 บ.) / แอร์ 200 บ.",
+        statusType: "open",
+        statusText: "เปิดปกติ (100% rec · 14K · เข้มเรื่องความเงียบหลัง 4 ทุ่ม)",
+        carCamp: "มีโซน Car Camp วิวสนามหญ้าลดหลั่น ห้องน้ำ+น้ำอุ่นสะอาด ใกล้ชุมชน",
+        kids: "มีเรือคายัคและเสื้อชูชีพให้พายเล่นฟรี!",
+        phone: "0804691545",
+        phoneDisplay: "080-469-1545",
+        tags: ["water", "boat", "carcamp", "kidfree"],
+        featuredRank: 8,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/jintanakancamp/photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/jintanakancamp" }
+        ]
+      },
+      {
+        id: "29camp",
+        name: "29 Camp ลาดหญ้า",
+        batch: "ชุด 1 (ใกล้เมือง+ถูก)",
+        region: "kanchanaburi",
+        regionLabel: "ต.ลาดหญ้า อ.เมือง กาญจนบุรี",
+        distKm: 145,
+        driveTime: "2–2.5 ชม.",
+        priceNum: 100,
+        priceText: "100 บ./คน / เด็ก <10 ขวบ ฟรี! (ค่าไฟ 30–100 บ.)",
+        statusType: "open",
+        statusText: "เปิดปกติ (ติดต่อพี่หน่อยผู้ดูแลลานโดยตรง)",
+        carCamp: "ลานหญ้าติดแม่น้ำแควใหญ่ จอดรถ Car Camp ได้",
+        kids: "แม่น้ำกว้างตื้นใส เหมาะกับเด็กเล่นน้ำ (ใส่ชูชีพ)",
+        phone: "0985269525",
+        phoneDisplay: "098-526-9525 (พี่หน่อย)",
+        tags: ["water", "carcamp", "kidfree"],
+        featuredRank: 13,
+        links: [
+          { label: "📸 รูป FB เจ้าของ", url: "https://www.facebook.com/noibangplud555/photos" },
+          { label: "🖼️ รูป Google", url: "https://www.google.com/search?tbm=isch&q=29+Camp+%E0%B8%A5%E0%B8%B2%E0%B8%94%E0%B8%AB%E0%B8%8D%E0%B9%89%E0%B8%B2+%E0%B8%81%E0%B8%B2%E0%B8%8D%E0%B8%88%E0%B8%99%E0%B8%9A%E0%B8%B8%E0%B8%A3%E0%B8%B5" }
+        ]
+      },
+      {
+        id: "haijaichainam",
+        name: "บ้านไร่ หายใจชายน้ำ",
+        batch: "ชุด 2",
+        region: "kanchanaburi",
+        regionLabel: "ต.ท่ากระดาน อ.ศรีสวัสดิ์ กาญจนบุรี",
+        distKm: 205,
+        driveTime: "3–3.5 ชม.",
+        priceNum: 150,
+        priceText: "150 บ./คน/คืน",
+        statusType: "open",
+        statusText: "เปิดปกติ (98% rec · 46K followers · งดเสียงหลัง 4 ทุ่ม)",
+        carCamp: "ลานริมน้ำเงียบสงบ (ทักถามจุดจอดนอนในรถก่อน)",
+        kids: "มีเรือให้พายฟรี และเสื้อชูชีพฟรี มีคนดูแลริมน้ำ",
+        phone: "",
+        phoneDisplay: "ทักแชตเพจ",
+        tags: ["water", "boat"],
+        featuredRank: 15,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/profile.php?id=100057037256716&sk=photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/profile.php?id=100057037256716" }
+        ]
+      },
+      {
+        id: "phutara",
+        name: "ภูธารา ริเวอร์แคมป์ ไทรโยค",
+        batch: "ชุด 2",
+        region: "kanchanaburi",
+        regionLabel: "อ.ไทรโยค กาญจนบุรี",
+        distKm: 190,
+        driveTime: "2.5–3 ชม.",
+        priceNum: 150,
+        priceText: "สอบถามเรทล่าสุดทางเพจ (~150–200 บ.)",
+        statusType: "open",
+        statusText: "เปิดปกติ (รองรับ Car Camp / RV ริมแม่น้ำน้อย)",
+        carCamp: "รองรับ Car Camp / รถบ้าน มีจุดต่อไฟฟ้าหลายจุด ห้องน้ำสะอาด",
+        kids: "ติดแม่น้ำแควน้อย+ลำธารข้างลาน ลงเล่นน้ำและตกปลาได้",
+        phone: "",
+        phoneDisplay: "ค้นหาเพจ ภูธารา ริเวอร์แคมป์",
+        tags: ["water", "carcamp"],
+        featuredRank: 20,
+        links: [
+          { label: "🖼️ รูป Google", url: "https://www.google.com/search?tbm=isch&q=%E0%B8%A0%E0%B8%B9%E0%B8%98%E0%B8%B2%E0%B8%A3%E0%B8%B2+%E0%B8%A3%E0%B8%B4%E0%B9%80%E0%B8%A7%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B9%81%E0%B8%84%E0%B8%A1%E0%B8%9B%E0%B9%8C+%E0%B9%84%E0%B8%97%E0%B8%A3%E0%B9%82%E0%B8%A2%E0%B8%84" }
+        ]
+      },
+      {
+        id: "thelakecamp",
+        name: "The Lake Camp by แพคุณเอิธ",
+        batch: "ชุด 1 (ทดลองเปิดไม่เต็มรูปแบบ)",
+        region: "kanchanaburi",
+        regionLabel: "อ.ศรีสวัสดิ์ (เขื่อนศรีนครินทร์) กาญจนบุรี",
+        distKm: 235,
+        driveTime: "3.5–4 ชม.",
+        priceNum: 200,
+        priceText: "ผู้ใหญ่ 200 บ. / เด็ก <12 ปี ฟรี!",
+        statusType: "warn",
+        statusText: "เพจแจ้ง 'ทดลองเปิดแบบไม่เต็มรูปแบบ ยังปรับปรุงบางส่วน'",
+        carCamp: "มีโซน Car Camp ปลั๊กไฟทุก 20 ม. ห้องน้ำ 24 ห้อง แต่วิ่งขึ้นเขาไกลหน่อย",
+        kids: "ริมเขื่อนศรีนครินทร์ มีเรือพาย/คายัค (มีค่าใช้จ่าย)",
+        phone: "0819017177",
+        phoneDisplay: "081-901-7177",
+        tags: ["water", "boat", "carcamp", "kidfree"],
+        featuredRank: 25,
+        links: [
+          { label: "📸 รูป FB", url: "https://www.facebook.com/TheLakeCamp/photos" },
+          { label: "เพจ FB", url: "https://www.facebook.com/TheLakeCamp/" }
+        ]
+      }
+    ];
+
+    const STORAGE_KEY = "carcamp_review_dec2026_v1";
+    let userState = { stars: {}, rejected: {}, notes: {} };
+    try {
+      const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
+      if (saved && typeof saved === "object") {
+        userState = {
+          stars: saved.stars || {},
+          rejected: saved.rejected || {},
+          notes: saved.notes || {}
+        };
+      }
+    } catch (_) {}
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(userState));
+      } catch (_) {}
+    }
+
+    const filterState = {
+      region: "all",
+      tags: new Set(),
+      query: "",
+      sort: "featured",
+      view: "cards"
+    };
+
+    function esc(str) {
+      return String(str ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function showToast(msg) {
+      const el = document.getElementById("toast");
+      el.textContent = msg;
+      el.classList.remove("hidden");
+      clearTimeout(showToast._timer);
+      showToast._timer = setTimeout(() => el.classList.add("hidden"), 2400);
+    }
+
+    function getFilteredCamps() {
+      const q = filterState.query.trim().toLowerCase();
+      let list = CAMPS.filter(c => {
+        if (filterState.region !== "all" && c.region !== filterState.region) return false;
+        for (const t of filterState.tags) {
+          if (t === "starred") {
+            if (!userState.stars[c.id]) return false;
+          } else if (!c.tags.includes(t)) {
+            return false;
+          }
+        }
+        if (q) {
+          const hay = [c.name, c.regionLabel, c.carCamp, c.kids, c.priceText, c.statusText, userState.notes[c.id] || ""].join(" ").toLowerCase();
+          if (!hay.includes(q)) return false;
+        }
+        return true;
+      });
+
+      list = [...list];
+      if (filterState.sort === "drive") {
+        list.sort((a, b) => a.distKm - b.distKm || a.featuredRank - b.featuredRank);
+      } else if (filterState.sort === "price") {
+        list.sort((a, b) => a.priceNum - b.priceNum || a.distKm - b.distKm);
+      } else {
+        list.sort((a, b) => {
+          const sa = userState.stars[a.id] ? 0 : 1;
+          const sb = userState.stars[b.id] ? 0 : 1;
+          const ra = userState.rejected[a.id] ? 1 : 0;
+          const rb = userState.rejected[b.id] ? 1 : 0;
+          return ra - rb || sa - sb || a.featuredRank - b.featuredRank;
+        });
+      }
+      return list;
+    }
+
+    function renderLinksHtml(c) {
+      const pills = c.links.map(l =>
+        `<a class="link-pill" href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.label)}</a>`
+      );
+      if (c.phone) {
+        pills.push(`<a class="link-pill" href="tel:${esc(c.phone)}">📞 ${esc(c.phoneDisplay)}</a>`);
+      }
+      return pills.join("");
+    }
+
+    function render() {
+      const list = getFilteredCamps();
+      const starCount = Object.values(userState.stars).filter(Boolean).length;
+      document.getElementById("star-count").textContent = String(starCount);
+      document.getElementById("result-count").textContent = `แสดง ${list.length} จาก ${CAMPS.length} แห่ง`;
+
+      const cardsEl = document.getElementById("cards-view");
+      const tableEl = document.getElementById("table-view");
+      const tbodyEl = document.getElementById("table-body");
+
+      if (filterState.view === "cards") {
+        cardsEl.classList.remove("hidden");
+        tableEl.classList.add("hidden");
+        if (list.length === 0) {
+          cardsEl.innerHTML = `<div class="camp-card"><p>ไม่พบลานที่ตรงกับเงื่อนไข — ลองล้างตัวกรองดูครับ</p></div>`;
+          return;
+        }
+        cardsEl.innerHTML = list.map(c => {
+          const isStar = !!userState.stars[c.id];
+          const isRej = !!userState.rejected[c.id];
+          const note = userState.notes[c.id] || "";
+          const statusClass = c.statusType === "warn" ? "warn" : "open";
+          return `
+            <article class="camp-card ${isStar ? "is-starred" : ""} ${isRej ? "is-rejected" : ""}">
+              <div class="card-head">
+                <div>
+                  <h2 class="card-title">${esc(c.name)}</h2>
+                  <div class="card-loc">📍 ${esc(c.regionLabel)} · ~${c.distKm} กม. (${esc(c.driveTime)})</div>
+                </div>
+              </div>
+              <div class="badge-row">
+                <span class="badge">${esc(c.batch)}</span>
+                <span class="badge ${statusClass}">${esc(c.statusText)}</span>
+              </div>
+              <ul class="card-specs">
+                <li><strong>🚗 นอนในรถ / Car Camp:</strong> ${esc(c.carCamp)}</li>
+                <li><strong>👶 เด็กชาย 7 ขวบ:</strong> ${esc(c.kids)}</li>
+                <li><strong>💰 ราคา:</strong> ${esc(c.priceText)}</li>
+                ${!c.phone && c.phoneDisplay ? `<li><strong>📞 ติดต่อ:</strong> ${esc(c.phoneDisplay)}</li>` : ""}
+              </ul>
+              <div class="link-pills">${renderLinksHtml(c)}</div>
+              <div class="card-actions">
+                <div class="action-row">
+                  <button type="button" class="action-btn star-btn" data-action="star" data-id="${esc(c.id)}" aria-pressed="${isStar}">
+                    ${isStar ? "⭐ ติดดาวแล้ว" : "☆ ติดดาวไว้ดู"}
+                  </button>
+                  <button type="button" class="action-btn reject-btn" data-action="reject" data-id="${esc(c.id)}" aria-pressed="${isRej}">
+                    ${isRej ? "❌ ตัดออกแล้ว" : "ตัดออก"}
+                  </button>
+                </div>
+                <input type="text" class="note-input" data-action="note" data-id="${esc(c.id)}" value="${esc(note)}" placeholder="จดโน้ตส่วนตัว เช่น ทักแชตแล้ว ว่าง/เต็ม..." aria-label="โน้ตสำหรับ ${esc(c.name)}">
+              </div>
+            </article>
+          `;
+        }).join("");
+      } else {
+        cardsEl.classList.add("hidden");
+        tableEl.classList.remove("hidden");
+        tbodyEl.innerHTML = list.map(c => {
+          const isStar = !!userState.stars[c.id];
+          return `
+            <tr>
+              <th scope="row">
+                ${isStar ? "⭐ " : ""}${esc(c.name)}
+                <div class="card-loc">${esc(c.batch)}</div>
+              </th>
+              <td>${esc(c.regionLabel)}<br><strong>${esc(c.driveTime)}</strong> (~${c.distKm} กม.)</td>
+              <td>${esc(c.statusText)}</td>
+              <td>${esc(c.carCamp)}</td>
+              <td>${esc(c.kids)}</td>
+              <td>${esc(c.priceText)}<br><small>${esc(c.phoneDisplay)}</small></td>
+              <td><div class="link-pills">${renderLinksHtml(c)}</div></td>
+            </tr>
+          `;
+        }).join("");
+      }
+    }
+
+    document.querySelectorAll("[data-region]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        filterState.region = btn.dataset.region;
+        document.querySelectorAll("[data-region]").forEach(b => b.setAttribute("aria-pressed", String(b === btn)));
+        render();
+      });
+    });
+
+    document.querySelectorAll("[data-tag]").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const tag = btn.dataset.tag;
+        if (filterState.tags.has(tag)) {
+          filterState.tags.delete(tag);
+          btn.setAttribute("aria-pressed", "false");
+        } else {
+          filterState.tags.add(tag);
+          btn.setAttribute("aria-pressed", "true");
+        }
+        render();
+      });
+    });
+
+    document.getElementById("search-input").addEventListener("input", e => {
+      filterState.query = e.target.value;
+      render();
+    });
+
+    document.getElementById("sort-select").addEventListener("change", e => {
+      filterState.sort = e.target.value;
+      render();
+    });
+
+    document.getElementById("view-toggle-btn").addEventListener("click", e => {
+      const btn = e.currentTarget;
+      if (filterState.view === "cards") {
+        filterState.view = "table";
+        btn.textContent = "🗂️ ดูแบบการ์ด";
+        btn.setAttribute("aria-pressed", "true");
+      } else {
+        filterState.view = "cards";
+        btn.textContent = "📊 ดูแบบตาราง";
+        btn.setAttribute("aria-pressed", "false");
+      }
+      render();
+    });
+
+    document.getElementById("cards-view").addEventListener("click", e => {
+      const btn = e.target.closest("button[data-action]");
+      if (!btn) return;
+      const id = btn.dataset.id;
+      const action = btn.dataset.action;
+      if (action === "star") {
+        userState.stars[id] = !userState.stars[id];
+        if (userState.stars[id]) userState.rejected[id] = false;
+      } else if (action === "reject") {
+        userState.rejected[id] = !userState.rejected[id];
+        if (userState.rejected[id]) userState.stars[id] = false;
+      }
+      saveState();
+      render();
+    });
+
+    document.getElementById("cards-view").addEventListener("input", e => {
+      const inp = e.target.closest("input[data-action='note']");
+      if (!inp) return;
+      userState.notes[inp.dataset.id] = inp.value;
+      saveState();
+    });
+
+    document.getElementById("copy-shortlist-btn").addEventListener("click", async () => {
+      const starred = CAMPS.filter(c => userState.stars[c.id]);
+      if (starred.length === 0) {
+        showToast("ยังไม่ได้กด ⭐ ติดดาวลานไหนเลยครับ");
+        return;
+      }
+      const lines = starred.map((c, idx) => {
+        const note = userState.notes[c.id] ? ` | โน้ต: ${userState.notes[c.id]}` : "";
+        const mainLink = c.links[0] ? c.links[0].url : "";
+        return `${idx + 1}. ${c.name} (${c.regionLabel}, ${c.driveTime}) — ${c.phoneDisplay} | ${mainLink}${note}`;
+      });
+      const text = "ลิสต์ Car Camping ที่คัดไว้:\n" + lines.join("\n");
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast(`คัดลอก ${starred.length} ลานที่ติดดาวแล้ว!`);
+      } catch (_) {
+        showToast("คัดลอกไม่สำเร็จ (กรุณาเช็กสิทธิ์ Clipboard)");
+      }
+    });
+
+    render();
+  </script>
+</body>
+</html>
